@@ -33,7 +33,7 @@ li:hover{
 .row.small{
     
     background-color: goldenrod;
-    margin-left: -200px;
+    /*margin-left: -200px;
     margin-right: -200px;
-    
+   */ 
 }
