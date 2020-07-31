@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>IIT PALAKKAD UBA</title>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="UBA.css" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        input[type=text], select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: vertical;
+        }
+
+        label {
+            padding: 12px 12px 12px 0;
+            display: inline-block;
+        }
+
+        input[type=submit] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            float: right;
+        }
+
+            input[type=submit]:hover {
+                background-color: #45a049;
+            }
+
+        .container {
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+
+        
+
+        .col-75 {
+            float: left;
+            width: 55%;
+            margin-top: 6px;
+            margin-left: 30px;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 600px) {
+            .col-25, .col-75, input[type=submit] {
+                width: 100%;
+                margin-top: 0;
+            }
+        }
+    </style>
+
+
+</head>
+  
+<body>
+    <div class="container">
+        <div class="row small">
+            <div class="col-md-12 "><p>Contact No:xxxxxxxxxx</p>
+                                    <p>Email:example@example.com</p>
+            </div>
+        </div>
+        <div class="row headerImageBackground">
+            <div class="col-md-2 ">
+                <img class="headerImageSpace img-fluid" src="IIT-Palakkad Logo.png" alt="Logo" height="150px" width="150px">
+            </div>
+            <div class="col-md-8">
+                <h2 class="text-center header1"><b>Indian Institute of Technology Palakkad</b></h2>
+                <h2 class="text-center header2">UNNAT BHARAT ABHIYAN</h2>
+            </div>
+            <div class="col-md-2 text-right">
+                <img class="headerImageSpace img-fluid" src="unnat bharat abhiyan logo.jpg" height="150px" width="150px">
+            </div>
+        </div>
+    </div>
+        <ul class="tp1">
+            <li class="subh1">Home</li>
+            <li class="subh2">Activities</li>
+            <li class="subh3">About Us</li>
+            <li class="subh4">Gallery</li>
+            <li class="subh5">Contact Us</li>
+        </ul>
+        
+            
+
+            <form action="contact-handler.php" method="post" >
+              
+
+                <div class="col-75">
+           <input type="text" name="Name" placeholder="Name" >
+        </div>
+        <div class="col-75">
+            <input type="text" name="Designation" placeholder="Designation" > </div>
+            <div class="col-75">
+             <input type="text" name="Email" placeholder="Email" ></div>
+             <div class="col-75">
+             <input type="text" name="Number" placeholder="Contact Number" ></div>
+             <div class="col-75">
+            <input type="text" name="Institute_name" placeholder="Institute Name" ></div>
+        
+            <div class="col-75">
+               <label> Institute Type: </label>
+                <input type="radio" name="Type" value="Participating" > UBA Participating Institute
+                <input type="radio" name="Type" value="Prospective" > UBA Prospective Institute
+                <input type="radio" name="Type" value="Other" > Other
+            </div>
+        
+            <div class="col-75">
+            <textarea name="Message" rows="10" cols="40" >Message </textarea > </div>
+                <div class="col-75">
+            <input type="submit" name="submit" > </div>
+            
+            </form >
+
+            
+        
+</body>
+</html>
