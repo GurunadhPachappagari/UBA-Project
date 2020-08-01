@@ -55,6 +55,12 @@ a:hover{
 .header2{
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
+.footer{
+    font-size: small;
+    text-align: left;
+    background-color: grey;
+    color: ivory;
+}
 /* Bootstrap CSS*/
 /*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)
