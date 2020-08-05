@@ -4,12 +4,13 @@
     background-color: goldenrod;
     color: rgb(19, 4, 4);
     background-size: 100%;
-    overflow: hidden;
+    overflow: visible;
     width: 100%;
     background-image: transparent;
     margin-bottom: 0px;
 }
-.subh1,.subh2,.subh3,.subh4,.subh5 {
+.subh1,.subh2,.subh3,.subh4,.subh5,.subh6 {
+    position:relative;
     text-decoration: none;
     padding: 20px;
     text-align: center;
@@ -36,11 +37,13 @@ li:hover{
     
     background-color: goldenrod;
     margin-left: -200px;
-    margin-right: -200px;
+    margin-right: -190px;
     
 }
 a:hover{
     text-decoration:none;
+    
+    
 }
 .center{
     display: block;
@@ -49,12 +52,50 @@ a:hover{
     width: 100%;
 }
 .container1{
-    margin-left: 20px;
-    margin-right: -50px;
+    margin-left: 50px;
+    margin-right: 1px;
+    margin-top: 20px;
+    
 }
 .header2{
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
+.footer{
+    margin-top: 30px;
+    float: left;
+    font-size: 8px;
+    text-align: left;
+    background-color:black;
+    color: ivory;
+}
+.dropdown-menu{
+    position:relative;
+    display:block;
+    overflow-x:hidden;
+    overflow-y: visible;
+    z-index: 1000 !important;
+}
+.navbar{
+    z-index: 999 !important;
+}
+hr{
+    border-top: 5px solid goldenrod !important;
+}
+body{
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+.rownav{
+    overflow:visible;
+    zoom:1.0;
+    }
+.rownav:after{
+    content:" ";
+    display:block;
+    clear:both;
+    height:0;
+    visibility:hidden;
+    }
 
 /* Bootstrap CSS*/
 /*!
