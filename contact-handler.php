@@ -20,5 +20,13 @@ if(mail($tomail, $subject, $details))
 else {
 	echo "Failed to send";
 }
-
+$file = fopen("queries.csv","a");
+$list = array (
+	array($Name,$Desig,$Email,$Number,$Insti_name,$Insti_type,$Msg)
+  );
+  foreach ($list as $line) {
+	fputcsv($file, $line);
+  }
+  
+  fclose($file);
 ?>
