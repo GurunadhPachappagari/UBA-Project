@@ -96,6 +96,19 @@ body{
     height:0;
     visibility:hidden;
     }
+.container3{
+       display: block;
+     
+   }
+.scroll-up {
+    text-align: center;
+ height: 250px;	
+ overflow: hidden;
+ position: relative;
+ background: white;
+ color: black;
+ border: 1px solid orange;
+}
 
 /* Bootstrap CSS*/
 /*!
