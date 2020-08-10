@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -94,7 +94,6 @@
    
         <ul class="navbar-nav m-auto tp1">
             <li class="nav-item subh1"><a class="nav-link" href="UBA.html"style="color:black"style="text-decoration:none">Home</a></li>
-          <li class="nav-item subh4"><a class="nav-link" href="About.html"style="color:black"style="text-decoration:none">About Us</a></li>
             <li class="nav-item dropdown subh2"><a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown" style="color:black"style="text-decoration:none">Activities<span class="caret"></span></a>
                 <div class="dropdown-menu "aria-labelledby="dropdownMenu">
                     <div class="text-center" style="color: black;background-color:white;margin-bottom:5px;text-decoration:none"> <a class="dropdown-item" style="color: black;text-decoration:none" href="link1.html">Link 1</a></div>
@@ -102,7 +101,20 @@
                     <div class="text-center" style="color: black; background-color:white; margin-bottom:5px;"> <a class="dropdown-item" style="color: black;text-decoration:none" href="link3.htmk">Link 3</a></div>
                    </div>
                 </li>
-            <li class="nav-item subh6"><a class="nav-link" href="rpi.html"  style="color:black"style="text-decoration:none">Regional Participating Institutes</a>
+            <li class="nav-item dropdown subh6"><a  class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown"style="color:black"style="text-decoration:none">Important Links<span class="caret"></span></a>
+                <div class="dropdown-menu "aria-labelledby="dropdownMenu">
+                   <div class="text-center" style="color: black;background-color:white;margin-bottom:5px;text-decoration:none"> <a class="dropdown-item" style="color: black;text-decoration:none" href="link1.html">Link 1</a></div>
+                   <div class="text-center" style="color: black; background-color:white;margin-bottom:5px;text-decoration:none"> <a class="dropdown-item" style="color: black;text-decoration:none" href="link2.html">Link 2</a></div>
+                   <div class="text-center" style="color: black; background-color:white; margin-bottom:5px;"> <a class="dropdown-item" style="color: black;text-decoration:none" href="link3.htmk">Link 3</a></div>
+                  </div>
+                </li>
+            <li class="nav-item subh6"><a class="nav-link" href="news.html"style="color:black"style="text-decoration:none">News and Events</a></li>
+            <li class="nav-item dropdown subh6"><a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown" style="color:black"style="text-decoration:none">Regional Participating Institutes<span class="caret"></span></a>
+                <div class="dropdown-menu "aria-labelledby="dropdownMenu">
+                    <div class="text-center" style="color: black;background-color:white;margin-bottom:5px;text-decoration:none"> <a class="dropdown-item" style="color: black;text-decoration:none" href="link1.html">Link 1</a></div>
+                    <div class="text-center" style="color: black; background-color:white;margin-bottom:5px;text-decoration:none"> <a class="dropdown-item" style="color: black;text-decoration:none" href="link2.html">Link 2</a></div>
+                    <div class="text-center" style="color: black; background-color:white; margin-bottom:5px;"> <a class="dropdown-item" style="color: black;text-decoration:none" href="link3.htmk">Link 3</a></div>
+                   </div>
                 </li>
             <li class="nav-item dropdown subh5"><a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown" style="color:black"style="text-decoration:none">Gallery<span class="caret"></span></a>
                 <div class="dropdown-menu "aria-labelledby="dropdownMenu">
@@ -111,7 +123,7 @@
                     <div class="text-center" style="color: black; background-color:white; margin-bottom:5px;"> <a class="dropdown-item" style="color: black;text-decoration:none" href="link3.htmk">Link 3</a></div>
                    </div>
                 </li>
-            
+            <li class="nav-item subh4"><a class="nav-link" href="About.html"style="color:black"style="text-decoration:none">About Us</a></li>
             <li class="nav-item subh6"><a class="nav-link" href="contact.html"style="color:black"style="text-decoration:none">Contact Us</a></li>
         </ul>
     </nav>
@@ -122,26 +134,46 @@
               
 
                 <div class="col-75">
-           <input type="text" name="Name" placeholder="Name" >
+           <input type="text" name="Name" placeholder="Name" required >
         </div>
         <div class="col-75">
-            <input type="text" name="Designation" placeholder="Designation" > </div>
+            <input type="text" name="Designation" placeholder="Designation" required > </div>
             <div class="col-75">
-             <input type="text" name="Email" placeholder="Email" ></div>
+             <input type="text" name="Email" placeholder="Email"  required></div>
              <div class="col-75">
-             <input type="text" name="Number" placeholder="Contact Number" ></div>
-             <div class="col-75">
-            <input type="text" name="Institute_name" placeholder="Institute Name" ></div>
+             <input type="text" name="Number" placeholder="Contact Number" required></div>
+             
         
             <div class="col-75">
-               <label> Institute Type: </label>
-                <input type="radio" name="Type" value="Participating" > UBA Participating Institute
-                <input type="radio" name="Type" value="Prospective" > UBA Prospective Institute
-                <input type="radio" name="Type" value="Other" > Other
+                <select id="Institute_name" name="Institute_name" required>
+                    <option value="" disabled selected hidden>Choose an Institute</option>
+                    <option value="Central Univeristy of Kerala, Kasaragod">Central Univeristy of Kerala, Kasaragod</option>
+                    <option value="Vimal Jyothi Engineering College">Vimal Jyothi Engineering College</option>
+                    <option value="St. Joseph College Pilathara Kannur">St. Joseph College Pilathara Kannur</option>
+                    <option value="Govt. College Of Engineering, Kannur, Kerala">Govt. College Of Engineering, Kannur, Kerala</option>
+                    <option value="N.A.M College,Kallikandy">N.A.M College,Kallikandy</option>
+                    <option value="Govt. Engineering College, Wayanad">Govt. Engineering College, Wayanad</option>
+                    <option value="Don Bosco College, Sulthan Bathery">Don Bosco College, Sulthan Bathery</option>
+                    <option value="Mary Matha Arts & Science College, P.O. Vemom, Mananthavady, Wayanad">Mary Matha Arts & Science College, P.O. Vemom, Mananthavady, Wayanad</option>
+                    <option value="St. Mary`s College, Sulthans Bathery">St. Mary`s College, Sulthans Bathery</option>
+                    <option value="WMO Arts & Science College, Muttil">WMO Arts & Science College, Muttil</option>
+                    <option value="ST. JOSEPH`S COLLEGE, DEVAGIRI">ST. JOSEPH`S COLLEGE, DEVAGIRI</option>
+                    <option value="SREEPATHY INSTITUTE OF MANAGEMENT AND TECHNOLOGY">SREEPATHY INSTITUTE OF MANAGEMENT AND TECHNOLOGY</option>
+                    <option value="NSS TRINING COLLEGE, OTTAPPALAM">NSS TRINING COLLEGE, OTTAPPALAM</option>
+                    <option value="MES KALLADI COLLEGE, MANNARKKAD">MES KALLADI COLLEGE, MANNARKKAD</option>
+                    <option value="Govt. Victoria College, Palakkad">Govt. Victoria College, Palakkad</option>
+                    <option value="Indian Institute Of Technology, Palakkad">Indian Institute Of Technology, Palakkad</option>
+                    <option value="Jawaharlal College Of Engineering & Technology, Mangalam">Jawaharlal College Of Engineering & Technology, Mangalam</option>
+                    <option value="Malabar Polytechnic Campus">Malabar Polytechnic Campus</option>
+                    <option value="Ahalia School Of Engineering And Technology">Ahalia School Of Engineering And Technology</option>
+                    <option value="Indian Institute Of Management, Kozhikode">Indian Institute Of Management, Kozhikode</option>
+                    <option value="Providence Womens College, Kozhikkode">Providence Womens College, Kozhikkode</option>
+                    <option value="other">Other</option>
+                  </select>
             </div>
         
             <div class="col-75">
-            <textarea name="Message" rows="10" cols="40" >Message </textarea > </div>
+            <textarea name="Message" rows="10" cols="40" required >Message </textarea > </div>
                 <div class="col-75">
             <input type="submit" name="submit" > </div>
             
