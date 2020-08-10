@@ -1,4 +1,4 @@
-var picarray=['image1.jfif','image2.jfif','image3.jfif','image4.jfif','image5.jfif']
+var picarray=['UBA Regional Workshop IIT Palakkad.jpg','dsc03111.jpg','2 (1).jpg','DSC_2823.jpg','NIK_0766.jpg','Screenshot (79).png']
 var currentpic= -1;
 var img0 = new Array();
 for(i=0;i<picarray.length;i++){
