@@ -109,6 +109,11 @@ body{
  color: black;
  border: 1px solid orange;
 }
+#Mission,#Vision{
+    padding-left: 50px;
+    padding-right: 50px;
+    font-size: larger;
+}
 
 /* Bootstrap CSS*/
 /*!
