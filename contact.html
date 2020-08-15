@@ -67,6 +67,16 @@
     </style>
 
 
+<script>
+    function Check(val){
+     var element=document.getElementById("Institute_name");
+     if(val=="other")
+     document.getElementById("otherinsti").disabled = false;
+     else
+     document.getElementById("otherinsti").disabled = true;
+    }
+    
+    </script> 
 </head>
   
 <body>
@@ -145,7 +155,7 @@
              
         
             <div class="col-75">
-                <select id="Institute_name" name="Institute_name" required>
+                <select id="Institute_name" name="Institute_name" onchange='Check(this.value);' required>
                     <option value="" disabled selected hidden>Choose an Institute</option>
                     <option value="Central Univeristy of Kerala, Kasaragod">Central Univeristy of Kerala, Kasaragod</option>
                     <option value="Vimal Jyothi Engineering College">Vimal Jyothi Engineering College</option>
@@ -168,12 +178,15 @@
                     <option value="Ahalia School Of Engineering And Technology">Ahalia School Of Engineering And Technology</option>
                     <option value="Indian Institute Of Management, Kozhikode">Indian Institute Of Management, Kozhikode</option>
                     <option value="Providence Womens College, Kozhikkode">Providence Womens College, Kozhikkode</option>
-                    <option value="other">Other</option>
+                    <option value="other">Others</option>
                   </select>
             </div>
+
+            <div class="col-75">
+                <input type="text" id="otherinsti" name="Institute_name" placeholder="If others, please specify" required></div>
         
             <div class="col-75">
-            <textarea name="Message" rows="10" cols="40" required >Message </textarea > </div>
+            <textarea name="Message" rows="10" cols="40" placeholder="Message" required ></textarea > </div>
                 <div class="col-75">
             <input type="submit" name="submit" > </div>
             
