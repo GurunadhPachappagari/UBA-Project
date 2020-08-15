@@ -10,6 +10,44 @@
    
     <script src="UBA.js"></script>
     
+
+    <style>  
+        #leftbox { 
+            float:left;  
+           
+            width:65%; 
+            height:455px; 
+        } 
+            #rightbox{ 
+            float:right;
+            padding-left: 2%;
+            padding-right: 2%;
+            background:orange; 
+            width:35%; 
+            height:455px; 
+            
+        } 
+            h2{
+                text-align: center;
+            }
+
+            .button {
+            background-color: transparent;
+            border: 2px solid black;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            
+           
+            }
+    </style> 
+
+
 </head>
 <body>
     <div class="container">
@@ -59,8 +97,17 @@
     </nav>
     </div>
     
-    <div >
-        <img  id="imgBanner" src="UBA Regional Workshop IIT Palakkad.jpg" alt="Image" height="700px" width="1000px" class="center" style="z-index:-1;">
+    
+    <div>
+        <div id="leftbox">
+        <img  id="imgBanner" src="UBA Regional Workshop IIT Palakkad.jpg" alt="Image" height="455px" width="1000px" class="center" style="z-index:-1;"></div>
+        <div id="rightbox">
+            <h2>Upcoming Events</h2>
+            <div>The Event Details page tells your visitors more about your event. 
+                It includes details, such as the event name, description, time and location, as well as an About section. 
+            </div>
+            <button class="button" >View Details</button>
+        </div>
       
     </div>
     <div class="content">
@@ -85,30 +132,30 @@
         </div>
         <div class="container2">
             <h2 class="text-center" id="heading">Themes</h2><hr style="color: black;margin-bottom: 60px;" style="margin-bottom: 60px;">
-            <div class="col-lg-4 text-center"style="padding-bottom: 20px;"><a href="#"><img src="organic.JPG" alt="theme1" height="300px" width="300px"style="margin-bottom: 30px;"></a><br />
-               <a class="text-center" style="margin-bottom: 20px;color: goldenrod;text-decoration:none;text-size:large" href="#"><b>Organic Farming</b></a>
+            <div class="col-lg-4 text-center"style="padding-bottom: 20px;"><a href="organic.html"><img src="organic.JPG" alt="theme1" height="300px" width="300px"style="margin-bottom: 30px;"></a><br />
+             <a class="text-center" style="margin-bottom: 20px;color: goldenrod;text-decoration:none;text-size:large" href="organic.html"><b>Organic Farming</b></a>
             </div>
-            <div class="col-lg-4 text-center"style="padding-bottom: 20px;"><a href="#"><img src="water.JPG" alt="theme2" height="300px" width="300px"style="margin-bottom: 30px;"></a><br />
-                <a class="text-center"style="margin-bottom: 20px;color: goldenrod;text-decoration:none;text-size:large"href="#"><b>Water Management</b></a>
+            <div class="col-lg-4 text-center"style="padding-bottom: 20px;"><a href="watermanagement.html"><img src="water.JPG" alt="theme2" height="300px" width="300px"style="margin-bottom: 30px;"></a><br />
+                <a class="text-center"style="margin-bottom: 20px;color: goldenrod;text-decoration:none;text-size:large" href="watermanagement.html"><b>Water Management</b></a>
              </div>
-             <div class="col-lg-4 text-center"style="padding-bottom: 20px;"><a href="#"><img src="energy.png" alt="theme3" height="300px" width="300px"style="margin-bottom: 30px;"></a><br />
-                <a class="text-center"style="margin-bottom: 20px;color: goldenrod;text-decoration:none;text-size:large"href="#"><b>Renewable Energy</b></a>
+             <div class="col-lg-4 text-center"style="padding-bottom: 20px;"><a href="energy.html"><img src="energy.png" alt="theme3" height="300px" width="300px"style="margin-bottom: 30px;"></a><br />
+                <a class="text-center"style="margin-bottom: 20px;color: goldenrod;text-decoration:none;text-size:large" href="energy.html"><b>Renewable Energy</b></a>
              </div>
-             <div class="col-lg-4 text-center"style="padding-bottom: 20px;"><a href="#"><img src="artisans.png" alt="theme4" height="300px" width="300px"style="margin-bottom: 30px;"></a><br />
-                <a class="text-center"style="margin-bottom: 20px;color: goldenrod;text-decoration:none;text-size:large"href="#"><b>Artisans, Industries and Livelihood</b></a>
+             <div class="col-lg-4 text-center"style="padding-bottom: 20px;"><a href="artisans.html"><img src="artisans.png" alt="theme4" height="300px" width="300px"style="margin-bottom: 30px;"></a><br />
+                <a class="text-center"style="margin-bottom: 20px;color: goldenrod;text-decoration:none;text-size:large" href="artisans.html"><b>Artisans, Industries and Livelihood</b></a>
              </div>
-             <div class="col-lg-4 text-center"style="padding-bottom: 20px;"><a href="#"><img src="amenities.jpg" alt="theme5" height="300px" width="300px"style="margin-bottom: 30px;"></a><br />
-                <a class="text-center"style="margin-bottom: 20px;color: goldenrod;text-decoration:none;text-size:large"href="#"><b>Basic Amenities</b></a>
+             <div class="col-lg-4 text-center"style="padding-bottom: 20px;"><a href="amenities.html"><img src="amenities.jpg" alt="theme5" height="300px" width="300px"style="margin-bottom: 30px;"></a><br />
+                <a class="text-center"style="margin-bottom: 20px;color: goldenrod;text-decoration:none;text-size:large" href="amenities.html"><b>Basic Amenities</b></a>
              </div>
-             <div class="col-lg-4 text-center"style="padding-bottom: 20px;"><a href="#"><img src="convergence.png" alt="theme6" height="300px" width="300px"style="margin-bottom: 30px;"></a><br />
-                <a class="text-center"style="margin-bottom: 20px;color: goldenrod;text-decoration:none;text-size:large"href="#"><b>Convergence</b></a>
+             <div class="col-lg-4 text-center"style="padding-bottom: 20px;"><a href="convergence.html"><img src="convergence.png" alt="theme6" height="300px" width="300px"style="margin-bottom: 30px;"></a><br />
+                <a class="text-center"style="margin-bottom: 20px;color: goldenrod;text-decoration:none;text-size:large" href="convergence.html"><b>Convergence</b></a>
              </div>
         </div><hr class="col-xs-12" style="margin-bottom: 40px;">
         <div class="container3">
             <div class="row col-xs-6" style="margin-left:0px;padding-right:120px;padding-left:120px;">
                 <h2 class="text-center" id="heading" style="margin-bottom: 20px;">Important Links</h2>
                 <div class="scroll-up">
-              <marquee behavior="scroll" direction="up" scrollamount="3" onmouseover="this.stop();" onmouseout="this.start();" class="text-center">
+              <marquee behavior="scroll" direction="up" scrollamount="3" onmouseover="this.stop();" onmouseout="this.start();" class="text-left">
                 <p ><a href="https://iitpkd.ac.in/" style="color: black; text-decoration: none;margin-bottom: 30px;" target="_blank">Indian Institute of Technology Palakkad</a></p>
                 <p><a href="http://unnatbharatabhiyan.gov.in:8080/new-website/" style="color: black; text-decoration: none;margin-bottom: 30px;" target="_blank">Unnat Bharat Abhiyan NCI</a></p>
                 <p ><a href="https://rural.nic.in/" style="color: black; text-decoration: none;margin-bottom: 30px;" target="_blank">Ministry of Rural Development,Government of India</a></p>
