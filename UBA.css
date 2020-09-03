@@ -110,7 +110,7 @@ body{
  color: black;
  border: 1px solid orange;
 }
-#Mission,#Vision{
+#Mission,#Vision,#goal{
     padding-left: 50px;
     padding-right: 50px;
     font-size: larger;
