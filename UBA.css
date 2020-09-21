@@ -103,23 +103,32 @@ body{
    }
 .scroll-up {
     text-align: center;
- height: 2800px;	
+ height: 1150px;	
  overflow: hidden;
  position: relative;
  background: white;
  color: black;
  border: 1px solid orange;
+ margin-top: 50px;
 }
-#Mission,#Vision,#goal{
+#Mission,#Vision{
     padding-left: 50px;
     padding-right: 50px;
     font-size: larger;
 }
+.t1{
+    text-align: justify;
+    padding-bottom: 10px;
+}
 .movtext{
-    height: 2800px;
+    height: 1150px;
 }
 .text-center.dd:hover{
     background-color: gray !important;
+}
+.container001{
+    margin-left: 50px !important;    
+    margin-right: -60px !important;
 }
 
 /* Bootstrap CSS*/
