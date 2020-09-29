@@ -103,7 +103,7 @@ body{
    }
 .scroll-up {
     text-align: center;
- height: 1150px;	
+ height: 1070px;	
  overflow: hidden;
  position: relative;
  background: white;
@@ -114,14 +114,14 @@ body{
 #Mission,#Vision{
     padding-left: 50px;
     padding-right: 50px;
-    font-size: larger;
+    
 }
 .t1{
     text-align: justify;
     padding-bottom: 10px;
 }
 .movtext{
-    height: 1150px;
+    height: 1070px;
 }
 .text-center.dd:hover{
     background-color: gray !important;
