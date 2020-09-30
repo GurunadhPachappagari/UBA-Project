@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>IIT PALAKKAD UBA</title>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="UBA.css" rel="stylesheet">
+   
+    <script src="UBA.js"></script>
+
+    <style>
+
+      .responsive {
+          padding: 15px 6px;
+          float: left;
+          width: 24.99999%;
+        }
+        @media only screen and (max-width: 700px) {
+          .responsive {
+            width: 49.99999%;
+            margin: 6px 0;
+          }
+        }
+        
+        @media only screen and (max-width: 500px) {
+          .responsive {
+            width: 100%;
+          }
+        }
+        
+
+        div.gallery {
+          border: 1px solid #ccc;
+        }
+        
+       
+        
+        div.gallery img {
+          width: 100%;
+          height: auto;
+        }
+
+
+     
+      
+      * {
+        box-sizing: border-box;
+      }
+      
+      .row > .column {
+        padding: 0 8px;
+      }
+      
+      .row:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+      
+      .column {
+        float: left;
+        width: 25%;
+      }
+      
+      
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        padding-top:5px;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: black;
+      }
+      
+      
+      .modal-content {
+        position: relative;
+        background-color: #fefefe;
+        margin: auto;
+        padding: 0;
+        width: 90%;
+        
+        max-width: 1200px;
+      }
+      
+     
+      .close {
+        color: white;
+        position: absolute;
+        top: 10px;
+        right: 25px;
+        font-size: 35px;
+        font-weight: bold;
+      }
+      
+      .close:hover,
+      .close:focus {
+        color: #999;
+        text-decoration: none;
+        cursor: pointer;
+      }
+      
+      .mySlides {
+        display: none;
+      }
+      
+      .cursor {
+        cursor: pointer;
+      }
+      
+      
+      .prev,
+      .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        padding: 16px;
+        margin-top: -50px;
+        color: white;
+        font-weight: bold;
+        font-size: 20px;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+        -webkit-user-select: none;
+      }
+      
+      /* Position the "next button" to the right */
+      .next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+      }
+      
+      /* On hover, add a black background color with a little bit see-through */
+      .prev:hover,
+      .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+      }
+      
+      
+      
+      
+      img {
+        margin-bottom: -4px;
+      }
+      
+      .caption-container {
+        text-align: center;
+        background-color: black;
+        padding: 2px 16px;
+        color: white;
+      }
+      
+      .demo {
+        opacity: 0.6;
+      }
+      
+      .active,
+      .demo:hover {
+        opacity: 1;
+      }
+      
+      img.hover-shadow {
+        transition: 0.3s;
+      }
+      
+      .hover-shadow:hover {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      }
+      </style>
+
+
+</head>
+<body>
+    <div class="container">
+        <div class="row small">
+            <div class="col-md-12 "> <p>&nbsp;&nbsp; Phone :   xxxxxxxxxx</p>
+                                    <p>&nbsp;&nbsp;&nbsp;Email:example@example.com</p>
+            </div>
+        </div>
+        <div class="row headerImageBackground">
+            <div class="col-md-2 ">
+                <img class="headerImageSpace img-fluid" src="IIT-Palakkad Logo.png" alt="Logo" height="150px" width="150px">
+            </div>
+            <div class="col-md-8">
+                <h2 class="text-center header1"><b>Indian Institute of Technology Palakkad</b></h2>
+                <h2 class="text-center header2">UNNAT BHARAT ABHIYAN</h2>
+            </div>
+            <div class="col-md-2 text-right">
+                <img class="headerImageSpace img-fluid" src="unnat bharat abhiyan logo.jpg" height="150px" width="150px">
+            </div>
+        </div>
+    </div>
+    <div class="row rownav sticky-top">
+        <nav class="navbar navbar-expand-md text-center ">
+   
+        <ul class="navbar-nav m-auto tp1">
+            <li class="nav-item subh1"><a class="nav-link" href="UBA.html"style="color:black"style="text-decoration:none">Home</a></li>
+          <li class="nav-item subh4"><a class="nav-link" href="About.html"style="color:black"style="text-decoration:none">About Us</a></li>
+            <li class="nav-item subh2"><a class="nav-link" href="activities.html" style="color:black"style="text-decoration:none">Activities</a>
+                
+                </li>
+            <li class="nav-item subh6"><a class="nav-link" href="rpi.html"  style="color:black"style="text-decoration:none">Regional Participating Institutes</a>
+                </li>
+            <li class="nav-item subh5"><a class="nav-link" href="gallery.html" style="color:black"style="text-decoration:none">Gallery</a>
+                
+            <li class="nav-item subh6"><a class="nav-link" href="contact.html"style="color:black"style="text-decoration:none">Contact Us</a></li>
+        </ul>
+    </nav>
+    </div>
+    <div>
+    <h1 style="text-align:center;">Pale Blue Dot 3</h1><br />
+    
+    <div class="responsive">
+      <div class="gallery">
+        <img src="Pale Blue Dot 03/screenshot_2020-07-17_at_6.14.57_pm.png" style="width:100%" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+      </div>
+    </div>
+    <div class="responsive">
+      <div class="gallery">
+        <img src="Pale Blue Dot 03/screenshot_2020-07-17_at_6.15.05_pm.png" style="width:100%" onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
+      </div>
+    </div>
+    <div class="responsive">
+      <div class="gallery">
+        <img src="Pale Blue Dot 03/screenshot_2020-07-17_at_6.17.20_pm.png" style="width:100%" onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
+      </div>
+    </div>
+    <div class="responsive">
+      <div class="gallery">
+        <img src="Pale Blue Dot 03/screenshot_2020-07-17_at_6.18.16_pm.png" style="width:100%" onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+      </div>
+    </div>
+    <div class="responsive">
+      <div class="gallery">
+        <img src="Pale Blue Dot 03/screenshot_2020-07-17_at_6.19.37_pm.png" style="width:100%" onclick="openModal();currentSlide(5)" class="hover-shadow cursor">
+      </div>
+    </div>
+    <div class="responsive">
+      <div class="gallery">
+        <img src="Pale Blue Dot 03/screenshot_2020-07-17_at_6.42.00_pm.png" style="width:100%" onclick="openModal();currentSlide(6)" class="hover-shadow cursor">
+      </div>
+    </div>
+    
+    
+      
+  
+
+    </div>
+ 
+      
+
+        
+        
+        
+        
+    <div id="myModal" class="modal">
+      <span class="close cursor" onclick="closeModal()">&times;</span>
+      <div class="modal-content">
+    
+        <div class="mySlides">
+          
+          <img src="Pale Blue Dot 03/screenshot_2020-07-17_at_6.14.57_pm.png" style="width:100%">
+        </div>
+        <div class="mySlides">
+          
+          <img src="Pale Blue Dot 03/screenshot_2020-07-17_at_6.15.05_pm.png" style="width:100%">
+        </div>
+        <div class="mySlides">
+          
+          <img src="Pale Blue Dot 03/screenshot_2020-07-17_at_6.17.20_pm.png" style="width:100%">
+        </div>
+        <div class="mySlides">
+          
+          <img src="Pale Blue Dot 03/screenshot_2020-07-17_at_6.18.16_pm.png" style="width:100%">
+        </div>
+        <div class="mySlides">
+          
+          <img src="Pale Blue Dot 03/screenshot_2020-07-17_at_6.19.37_pm.png" style="width:100%">
+        </div>
+        <div class="mySlides">
+          
+          <img src="Pale Blue Dot 03/screenshot_2020-07-17_at_6.42.00_pm.png" style="width:100%">
+        </div>
+        
+        
+    
+        
+        
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    
+        <div class="caption-container">
+          <p id="caption"></p>
+        </div>
+    
+    
+        
+      </div>
+    </div>
+    
+    <script>
+    function openModal() {
+      document.getElementById("myModal").style.display = "block";
+    }
+    
+    function closeModal() {
+      document.getElementById("myModal").style.display = "none";
+    }
+    
+    var slideIndex = 1;
+    showSlides(slideIndex);
+    
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+    
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+    
+    function showSlides(n) {
+      var i;
+      var slides = document.getElementsByClassName("mySlides");
+      var dots = document.getElementsByClassName("demo");
+      var captionText = document.getElementById("caption");
+      if (n > slides.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";
+      dots[slideIndex-1].className += " active";
+      captionText.innerHTML = dots[slideIndex-1].alt;
+    }
+    </script>
+
+      <div class="footer" style="width: 100%;"style="margin-top: 10px;">
+        <p style="margin-top: 10px;">  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Address :   xxxxxxxxxx </p>
+         <p>&nbsp;&nbsp; &#169; Copyright xxxxxxxxxx</p>
+</div>
+</body>
+</html>
