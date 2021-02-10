@@ -1,4 +1,4 @@
-var picarray=['UBA Regional Workshop IIT Palakkad.jpg','dsc03111.jpg','2 (1).jpg','DSC_2823.JPG','NIK_0766.JPG','Screenshot (79).png','NIK_0850.JPG','DSC_3132.JPG']
+var picarray=['NIK_0766.JPG','dsc03111.jpg','2 (1).jpg','DSC_2823.JPG','Screenshot (79).png','NIK_0850.JPG','DSC_3132.JPG']
 var currentpic= -1;
 var img0 = new Array();
 for(i=0;i<picarray.length;i++){
