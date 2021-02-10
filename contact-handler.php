@@ -8,7 +8,7 @@ $Number=$_POST["Number"];
 $Insti_name=$_POST["Institute_name"];
 
 $Msg=$_POST["Message"];
-$tomail="rajsurya1012@gmail.com";
+$tomail="uba@iitpkd.ac.in";
 $details="Name :".$Name."\n Designation :".$Desig.
 		"\n Email :".$Email."\n Contact Number :".$Number."\n Institute Name :".$Insti_name."\n Message :".$Msg."\n";
 $subject="Mail from UBA IIT PALAKKAD";

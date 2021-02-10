@@ -77,7 +77,7 @@ a:hover{
     z-index: 1000 !important;
 }
 .navbar{
-    z-index: 999 !important;
+    z-index: 0 !important;
 }
 hr{
     border-top: 5px solid goldenrod !important;
