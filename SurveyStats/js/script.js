@@ -1,19 +1,29 @@
 function drawPieUtil(labels, data){
     var ctx = document.getElementById("myChart").getContext('2d');
+    var i;
+    bg_colors = []
+    for(i = 0; i < labels.length; i){
+        clr = '#'+Math.floor(Math.random()*16777215).toString(16);
+        if(!bg_colors.includes(clr)){
+            bg_colors.push(clr);
+             i++
+        }
+    }
     var myChart = new Chart(ctx, {
         type: 'pie',
         data: {
             "labels": labels,
             datasets: [{
-            backgroundColor: [
-                '#'+Math.floor(Math.random()*16777215).toString(16),
-                '#'+Math.floor(Math.random()*16777215).toString(16),
-                '#'+Math.floor(Math.random()*16777215).toString(16),
-                '#'+Math.floor(Math.random()*16777215).toString(16),
-                '#'+Math.floor(Math.random()*16777215).toString(16),
-                '#'+Math.floor(Math.random()*16777215).toString(16),
-                '#'+Math.floor(Math.random()*16777215).toString(16)
-            ],
+            // backgroundColor: [
+            //     '#'+Math.floor(Math.random()*16777215).toString(16),
+            //     '#'+Math.floor(Math.random()*16777215).toString(16),
+            //     '#'+Math.floor(Math.random()*16777215).toString(16),
+            //     '#'+Math.floor(Math.random()*16777215).toString(16),
+            //     '#'+Math.floor(Math.random()*16777215).toString(16),
+            //     '#'+Math.floor(Math.random()*16777215).toString(16),
+            //     '#'+Math.floor(Math.random()*16777215).toString(16)
+            // ],
+            backgroundColor: bg_colors,
             data: data
             }]
         }
