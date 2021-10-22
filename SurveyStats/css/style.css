@@ -1,5 +1,21 @@
-.container {
+.container02 {
     width: 50%;
     margin: 15px auto;
     
   }
+  .flex-box-container01{
+    display: flex;
+    flex-wrap: wrap;
+    /* border: 1px solid black;
+    padding: 10px;  
+    justify-content: space-around; */
+    flex-direction: row;
+  }
+
+  .header1{
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  

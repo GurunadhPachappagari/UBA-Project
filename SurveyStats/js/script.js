@@ -1,76 +1,34 @@
-function drawPieUtil(labels, data){
-    var ctx = document.getElementById("myChart").getContext('2d');
-    var i;
-    bg_colors = []
-    for(i = 0; i < labels.length; i){
-        clr = '#'+Math.floor(Math.random()*16777215).toString(16);
-        if(!bg_colors.includes(clr)){
-            bg_colors.push(clr);
-             i++
+import * as PieChart from './PieChart.js'
+import * as Histogram from './Histogram.js'
+import * as Data from './select_data.js'
+import * as Helpers from './Helpers.js'
+
+
+var data = Data.data
+
+console.log(data.length)
+
+for(var i = 0; i < data.length; i++){
+    console.log("#", i)
+    var file = data[i];
+    console.log(file.file_path)
+    var json_data = await Helpers.getData(file.file_path);
+    for(var j = 0; j < file.cols.length; j++){
+        var column = file.cols[j];
+        var column_name = column.name;
+        
+        var canvas = document.createElement('canvas');
+        var id = file.file_path + '/' + column_name;
+        canvas.setAttribute('id', id);
+        document.getElementById('plots').appendChild(canvas);
+
+        if(column.plot_type == 'pie'){
+            PieChart.drawPie(file.file_path, column_name, json_data);
+        }
+        else if(column.plot_type == 'histogram'){
+            var bins = column.bins;
+            Histogram.drawHist(file.file_path, column_name, bins, json_data)
         }
     }
-    var myChart = new Chart(ctx, {
-        type: 'pie',
-        data: {
-            "labels": labels,
-            datasets: [{
-            // backgroundColor: [
-            //     '#'+Math.floor(Math.random()*16777215).toString(16),
-            //     '#'+Math.floor(Math.random()*16777215).toString(16),
-            //     '#'+Math.floor(Math.random()*16777215).toString(16),
-            //     '#'+Math.floor(Math.random()*16777215).toString(16),
-            //     '#'+Math.floor(Math.random()*16777215).toString(16),
-            //     '#'+Math.floor(Math.random()*16777215).toString(16),
-            //     '#'+Math.floor(Math.random()*16777215).toString(16)
-            // ],
-            backgroundColor: bg_colors,
-            data: data
-            }]
-        }
-    });
+    console.log("#", i)
 }
-
-
-async function getData(file_path){
-    const response = await fetch(file_path);
-    const data = await response.arrayBuffer();
-    var XL_row_object;
-    var workbook = XLSX.read(new Uint8Array(data), {
-        type: 'array'
-    });
-    workbook.SheetNames.forEach(function(sheetName) {
-        XL_row_object = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[sheetName]);
-        // json_object = JSON.stringify(XL_row_object);
-      })
-    return XL_row_object;
-}
-
-
-async function drawPie(file_path, column_name){
-    const arr = await getData(file_path);
-    // console.log(arr.length)
-    // console.log(arr[10]['Crop 1'])
-    var label_set = {}
-    for(var i = 0; i < arr.length; i++){
-        if(label_set[arr[i][column_name]] == undefined){
-            label_set[arr[i][column_name]] = 1;
-        }
-        else{
-            label_set[arr[i][column_name]] += 1;
-        }
-    }
-    console.log(label_set)
-    data = []
-    labels = []
-    for(var i in label_set){
-        labels.push(i)
-        data.push(label_set[i])
-    }
-    drawPieUtil(labels, data);
-
-
-}
-
-file_path = 'assets/survey_data/agricultural_survey.xlsx'
-column_name = 'Crop 1'
-drawPie(file_path, column_name);
