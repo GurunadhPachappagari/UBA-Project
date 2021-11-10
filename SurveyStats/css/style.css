@@ -12,7 +12,7 @@
     flex-direction: row;
   }
   
-  canvas { background:ivory; border:5px solid orange; align-items: center;}
+  canvas { background:ivory; border:5px solid orange; align-items: center; width: 50% !important;}
   /* canvas { background:ivory; border:5px solid orange; width:400px !important; height:400px !important } */
   
   /* .header1{
