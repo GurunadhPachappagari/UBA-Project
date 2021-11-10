@@ -40,7 +40,7 @@ function drawHistUtil(labels, data, column_name, file_path, description){
             },
             title: {
               display: true,
-              text: [column_name, description], 
+              text: [description], 
               position : 'bottom'
             },
             responsive : false,

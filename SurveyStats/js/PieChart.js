@@ -14,7 +14,7 @@ function drawPieUtil(labels, data, column_name, file_path, description){
         options: {
             title: {
               display: true,
-              text: [column_name, description],
+              text: [description],
               position: 'bottom'
             },
             responsive : false
