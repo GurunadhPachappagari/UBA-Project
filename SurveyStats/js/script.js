@@ -13,6 +13,7 @@ for(var i = 0; i < data.length; i++){
     for(var j = 0; j < file.cols.length; j++){
         var column = file.cols[j];
         var column_name = column.name;
+        var description = column.description;
         if(WProcess.isSensetive(column_name)){
             continue;
         }
@@ -23,11 +24,11 @@ for(var i = 0; i < data.length; i++){
         document.getElementById('plots').appendChild(canvas);
 
         if(column.plot_type == 'pie'){
-            PieChart.drawPie(file.file_path, column_name, json_data);
+            PieChart.drawPie(file.file_path, column_name, json_data, description);
         }
         else if(column.plot_type == 'histogram'){
             var bins = column.bins;
-            Histogram.drawHist(file.file_path, column_name, bins, json_data)
+            Histogram.drawHist(file.file_path, column_name, bins, json_data, description)
         }
     }
 }

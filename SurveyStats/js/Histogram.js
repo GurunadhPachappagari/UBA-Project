@@ -1,5 +1,5 @@
 
-function drawHistUtil(labels, data, column_name, file_path){
+function drawHistUtil(labels, data, column_name, file_path, description){
     const ctx = document.getElementById(file_path + '/' + column_name).getContext('2d');
     var i;
     var bg_colors = []
@@ -40,13 +40,14 @@ function drawHistUtil(labels, data, column_name, file_path){
             },
             title: {
               display: true,
-              text: column_name
+              text: [column_name, description], 
+              position : 'bottom'
             }
         },
     });
 }
 
-async function drawHist(file_path, column_name, bins = 20, arr){
+async function drawHist(file_path, column_name, bins = 20, arr, description = ""){
     // console.log(arr.length)
     // console.log(arr[10][column_name])
     var samples = []
@@ -76,7 +77,7 @@ async function drawHist(file_path, column_name, bins = 20, arr){
         labels.push((i).toString() + "-" + (i + 2*gap).toString());
         freq.push((data[ind++] || 0))
     }
-    drawHistUtil(labels, freq, column_name, file_path);
+    drawHistUtil(labels, freq, column_name, file_path, description);
 }
 
 

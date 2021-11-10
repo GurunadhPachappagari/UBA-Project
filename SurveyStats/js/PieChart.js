@@ -1,4 +1,4 @@
-function drawPieUtil(labels, data, column_name, file_path){
+function drawPieUtil(labels, data, column_name, file_path, description){
     var ctx = document.getElementById(file_path + "/" + column_name).getContext('2d');
     var i;
     var bg_colors = []
@@ -14,7 +14,8 @@ function drawPieUtil(labels, data, column_name, file_path){
         options: {
             title: {
               display: true,
-              text: column_name
+              text: [column_name, description],
+              position: 'bottom'
             }
         },
         data: {
@@ -27,7 +28,7 @@ function drawPieUtil(labels, data, column_name, file_path){
     });
 }
 
-async function drawPie(file_path, column_name, arr){
+async function drawPie(file_path, column_name, arr, description = ""){
     // console.log(arr.length)
     // console.log(arr[10]['Crop 1'])
     var label_set = {}
@@ -49,7 +50,7 @@ async function drawPie(file_path, column_name, arr){
         labels.push(i)
         data.push(label_set[i])
     }
-    drawPieUtil(labels, data, column_name, file_path);
+    drawPieUtil(labels, data, column_name, file_path, description);
 }
 
 export {drawPie, drawPieUtil}
