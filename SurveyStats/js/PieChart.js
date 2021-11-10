@@ -16,7 +16,8 @@ function drawPieUtil(labels, data, column_name, file_path, description){
               display: true,
               text: [column_name, description],
               position: 'bottom'
-            }
+            },
+            // responsive : true
         },
         data: {
             labels: labels,
@@ -26,6 +27,7 @@ function drawPieUtil(labels, data, column_name, file_path, description){
             }]
         }
     });
+    
 }
 
 async function drawPie(file_path, column_name, arr, description = ""){

@@ -42,7 +42,9 @@ function drawHistUtil(labels, data, column_name, file_path, description){
               display: true,
               text: [column_name, description], 
               position : 'bottom'
-            }
+            },
+            // responsive : true,
+            // maintainAspectRatio: false
         },
     });
 }
