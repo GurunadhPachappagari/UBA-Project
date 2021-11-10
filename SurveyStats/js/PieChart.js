@@ -11,24 +11,18 @@ function drawPieUtil(labels, data, column_name, file_path){
     }
     var myChart = new Chart(ctx, {
         type: 'pie',
+        options: {
+            title: {
+              display: true,
+              text: column_name
+            }
+        },
         data: {
             labels: labels,
             datasets: [{
             backgroundColor: bg_colors,
             data: data
             }]
-        },
-        options : {
-            plugins: {
-                title: {
-                    display: true,
-                    text: 'Custom Chart Title',
-                    padding: {
-                        top: 10,
-                        bottom: 30
-                    }
-                }
-            }
         }
     });
 }

@@ -1,44 +1,48 @@
 
 function drawHistUtil(labels, data, column_name, file_path){
     const ctx = document.getElementById(file_path + '/' + column_name).getContext('2d');
-
+    var i;
+    var bg_colors = []
+    for(i = 0; i < labels.length; i){
+        var clr = '#'+Math.floor(Math.random()*16777215).toString(16);
+        if(!bg_colors.includes(clr)){
+            bg_colors.push(clr);
+             i++
+        }
+    }
     const chart = new Chart(ctx, {
         type: 'bar',
         data: {
             labels: labels,
             datasets: [{
-            label: column_name,
+            // label: column_name,
             data: data,
-            backgroundColor: 'orange',
+            backgroundColor: bg_colors,
             }]
         },
         options: {
-            plugins: {
-                title: {
-                    display: true,
-                    text: 'Custom Chart Title',
-                    padding: {
-                        top: 10,
-                        bottom: 30
-                    }
-                }
+            legend: {
+                display: false
             },
             scales: {
-            xAxes: [{
-                display: false,
-            }, {
-                display: true,
-                ticks: {
-                autoSkip: false,
-                }
-            }],
-            yAxes: [{
-                ticks: {
-                beginAtZero: true
-                }
-            }]
+                yAxes: [{
+                  scaleLabel: {
+                    display: true,
+                    labelString: "frequency"
+                  }
+                }],
+                xAxes: [{
+                    scaleLabel: {
+                      display: true,
+                      labelString: column_name
+                    }
+                }]
+            },
+            title: {
+              display: true,
+              text: column_name
             }
-        }
+        },
     });
 }
 
@@ -64,11 +68,12 @@ async function drawHist(file_path, column_name, bins = 20, arr){
         data[window_num] = (data[window_num] || 0) + 1;
     }
     // console.log(data)
-    var labels = [low]
+    var labels = [low.toString() + "-" + (low + gap).toString()]
+    // var labels = [low]
     var ind = 0
     var freq = [(data[ind++] || 0)]
     for(var i = low; i <= high; i += gap){
-        labels.push(i + gap);
+        labels.push((i).toString() + "-" + (i + 2*gap).toString());
         freq.push((data[ind++] || 0))
     }
     drawHistUtil(labels, freq, column_name, file_path);
