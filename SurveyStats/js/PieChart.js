@@ -12,7 +12,7 @@ function drawPieUtil(labels, data, column_name, file_path){
     var myChart = new Chart(ctx, {
         type: 'pie',
         data: {
-            "labels": labels,
+            labels: labels,
             datasets: [{
             backgroundColor: bg_colors,
             data: data
@@ -20,10 +20,22 @@ function drawPieUtil(labels, data, column_name, file_path){
         },
         options : {
             plugins: {
+                // title: {
+                //     display: true,
+                //     text: column_name,
+                //     color: '#666'
+                // },
+                // padding: {
+                //     top: 10,
+                //     bottom: 30
+                // }
                 title: {
                     display: true,
-                    text: "column_name",
-                    color: 'green'
+                    text: 'Custom Chart Title',
+                    padding: {
+                        top: 10,
+                        bottom: 30
+                    }
                 }
             }
         }
