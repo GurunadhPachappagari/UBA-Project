@@ -20,59 +20,6 @@
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"> -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.js"></script> -->
 
-    <style>  
-        #leftbox { 
-            float:left;  
-           
-            width:65%; 
-            height:455px; 
-        } 
-            #rightbox{ 
-            float:right;
-            padding-left: 2%;
-            padding-right: 2%;
-            background:orange; 
-            width:35%; 
-            height:455px; 
-            
-        } 
-            h2{
-                text-align: center;
-            }
-
-            .button {
-            background-color: transparent;
-            border: 2px solid black;
-            color: white;
-            padding: 15px 32px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 4px 2px;
-            cursor: pointer;
-            
-           
-            }
-    </style> 
-     <style>  
-        #leftbox2 { 
-            float:left;  
-            padding-top: 2%;
-             padding-left: 15%;
-             padding-right: 5%;
-            width:50%; 
-            height:200px; 
-        } 
-        #ending {
-            width:100%;
-            float:bottom;
-            text-align: center;
-
-
-        }
-        
-    </style>
     
 </head>
 <body>
@@ -127,15 +74,32 @@
     </nav>
     </div>
     
-    
-
-    <!-- <div class="container02">
-        <div>
-            <div class="flex-box-container01" id="plots">
-
+    <div class="dataset-selection">
+        <form action="">
+            <div class="row">
+                <div class="left-25">
+                    <label for="country">Dataset</label>
+                </div>
+                <div class="right-75">
+                    <select id="Dataset" name="country">
+                        <option value="" selected="selected">Select DataSet</option>
+                    </select>
+                </div>
             </div>
-        </div>
-    </div> -->
+            <div class="row">
+                <div class="left-25">
+                    <label for="country">Column</label>
+                </div>
+                <div class="right-75">
+                    <table id="columnsTable"></table>
+                </div>
+            </div>
+            <div class="row">
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+
     <div class="flex-box-container01" id="plots">  </div>
 
     

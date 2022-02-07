@@ -32,3 +32,28 @@ for(var i = 0; i < data.length; i++){
         }
     }
 }
+
+
+// window.onload = function () {
+    var dropDownContent = document.getElementById("Dataset");
+    // for (var country in stateObject) {
+    for(var i = 0; i < data.length; i++){
+        var file = data[i];
+        var file_path = file.file_path;
+        dropDownContent.options[dropDownContent.options.length] = new Option(file_path, i);
+    }
+    dropDownContent.onchange = function () {
+        var parentTbl = document.getElementById("columnsTable");
+        var row = document.createElement('tr');
+        row.setAttribute('id', "table_row");
+        parentTbl.innerHTML = "";
+        parentTbl.appendChild(row);
+        if (this.selectedIndex < 1) return; // done   
+        for(var j = 0; j < data[this.value].cols.length; j++){
+            var column = data[this.value].cols[j].name;
+            var newel = document.createElement('td');
+            newel.innerHTML = "<input type='checkbox' id=" + column + ">" + column;
+            row.appendChild(newel);
+        }
+    }
+// }
