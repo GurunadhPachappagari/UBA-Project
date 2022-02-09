@@ -25,7 +25,6 @@
 
   #leftbox { 
     float:left;  
-   
     width:65%; 
     height:455px; 
 } 
@@ -91,7 +90,7 @@
     display: inline-block;
   }
   
-  input[type=submit] {
+  button[type=button] {
     background-color: #04AA6D;
     color: white;
     padding: 12px 20px;
@@ -101,7 +100,7 @@
     float: right;
   }
   
-  input[type=submit]:hover {
+  button[type=button]:hover {
     background-color: #45a049;
   }
   
@@ -132,7 +131,7 @@
   
   /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
   @media screen and (max-width: 600px) {
-    .col-25, .col-75, input[type=submit] {
+    .col-25, .col-75, button[type=button] {
       width: 100%;
       margin-top: 0;
     }

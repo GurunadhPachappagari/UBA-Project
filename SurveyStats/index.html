@@ -23,6 +23,7 @@
     
 </head>
 <body>
+    <script type="module" src="js/script.js"></script>
 
     <div class="container">
         <div class="row small">
@@ -75,7 +76,7 @@
     </div>
     
     <div class="dataset-selection">
-        <form action="">
+        <form id="dSetForm">
             <div class="row">
                 <div class="left-25">
                     <label for="country">Dataset</label>
@@ -95,7 +96,8 @@
                 </div>
             </div>
             <div class="row">
-                <input type="submit" value="Submit">
+                <button type="button" id = "dSetFormSubmit"value="Submit">Submit</button>
+                <!-- <button onclick="submitted()" type="submit">submit</button> -->
             </div>
         </form>
     </div>
@@ -104,7 +106,6 @@
 
     
 
-    <script type="module" src="js/script.js"></script>
 
     <div class="footer" style="width: 100%;"style="margin-top: 10px;">
  
