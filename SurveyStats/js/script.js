@@ -30,6 +30,23 @@ var data = Data.data;
             row.appendChild(newel);
             // console.log(column);
         }
+
+        var parentTbl = document.getElementById("binsTable");
+        var row = document.createElement('tr');
+        row.setAttribute('id', "bin_row");
+        parentTbl.innerHTML = "";
+        parentTbl.appendChild(row);
+        for(var j = 0; j < data[this.value].cols.length; j++){
+            var column = data[this.value].cols[j].name;
+            var column_type = data[this.value].cols[j].plot_type;
+            if(column_type == 'pie'){
+                continue;
+            }
+            var newel = document.createElement('td');
+            newel.innerHTML = column + "<input type='number' min='1' max='100' step='5' value='20' id=" + "bins_" + column.replace(/ /g, '_') + ">";
+            row.appendChild(newel);
+            // console.log(column);
+        }
     }
 // }
 
@@ -62,8 +79,10 @@ form.addEventListener("click", async function(evt){
                 PieChart.drawPie(file.file_path, column_name, json_data, description);
             }
             else if(column.plot_type == 'histogram'){
-                var bins = column.bins;
-                Histogram.drawHist(file.file_path, column_name, bins, json_data, description)
+                // var bins = column.bins;
+                var bins = document.getElementById("bins_" + column_name.replace(/ /g, '_')).value;
+                // console.log(nBins);
+                Histogram.drawHist(file.file_path, column_name, bins, json_data, description);
             }
         }
     }
