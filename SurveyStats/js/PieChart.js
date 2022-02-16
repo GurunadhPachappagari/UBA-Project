@@ -36,7 +36,14 @@ async function drawPie(file_path, column_name, arr, description = ""){
     var label_set = {}
     for(var i = 0; i < arr.length; i++){
         var s = arr[i][column_name]
-        var s = s.trim()
+        try {
+            var s = s.trim()
+        }
+        catch(err) {
+            console.log(err);
+            console.log(s, column_name, i)
+            continue;
+        }
         if(label_set[s] == undefined){
             label_set[s] = 1;
         }

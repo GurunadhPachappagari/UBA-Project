@@ -3,6 +3,7 @@ import * as Histogram from './Histogram.js'
 import * as Data from './select_data.js'
 import * as Helpers from './Helpers.js'
 import * as WProcess from './WordProcessing.js'
+import * as PType from './PlotType.js'
 
 var data = Data.data;
 
@@ -16,17 +17,34 @@ var data = Data.data;
         var file_path = file.file_path;
         dropDownContent.options[dropDownContent.options.length] = new Option(file_path, i);
     }
-    dropDownContent.onchange = function () {
+    dropDownContent.onchange = async function () {
         var parentTbl = document.getElementById("columnsTable");
-        var row = document.createElement('tr');
-        row.setAttribute('id', "table_row");
         parentTbl.innerHTML = "";
-        parentTbl.appendChild(row);
         if (this.selectedIndex < 1) return; // done   
-        for(var j = 0; j < data[this.value].cols.length; j++){
-            var column = data[this.value].cols[j].name;
+        var json_data = await Helpers.getData(data[this.value].file_path);
+        for(var col in json_data[0]){
+            // for(var j = 0; j < cols_len; j++){
+            if(!json_data[0].hasOwnProperty(col)){
+                continue;
+            }
+            // console.log(col + "hi")
+            var column = col;
+
+            var row = document.createElement('tr');
+            // row.setAttribute('id', "table_row");
+            parentTbl.appendChild(row);
+    
             var newel = document.createElement('td');
-            newel.innerHTML = "<input type='checkbox' id=" + column.replace(/ /g, '_') + ">" + column;
+            newel.innerHTML = "<input type='checkbox' id=" + (data[this.value].file_path + column).replace(/ /g, '_') + ">";
+            
+            var column_type = PType.plot_type(json_data, col);
+            if(column_type == 'pie'){
+                newel.innerHTML += column;
+                row.appendChild(newel);
+                continue;
+            }
+            // var newel = document.createElement('td');
+            newel.innerHTML += "<input type='number' min='1' max='100' step='5' value='20' id=" + "bins_" + column.replace(/ /g, '_') + ">" + column;
             row.appendChild(newel);
             // console.log(column);
         }
@@ -36,15 +54,19 @@ var data = Data.data;
         row.setAttribute('id', "bin_row");
         parentTbl.innerHTML = "";
         parentTbl.appendChild(row);
-        for(var j = 0; j < data[this.value].cols.length; j++){
-            var column = data[this.value].cols[j].name;
-            var column_type = data[this.value].cols[j].plot_type;
-            if(column_type == 'pie'){
+        for(var col in json_data[0]){
+            if(!json_data[0].hasOwnProperty(col)){
                 continue;
             }
-            var newel = document.createElement('td');
-            newel.innerHTML = column + "<input type='number' min='1' max='100' step='5' value='20' id=" + "bins_" + column.replace(/ /g, '_') + ">";
-            row.appendChild(newel);
+            // console.log(col + "hi")
+            // var column = col;
+            // var column_type = PType.plot_type(json_data, col);
+            // if(column_type == 'pie'){
+            //     continue;
+            // }
+            // var newel = document.createElement('td');
+            // newel.innerHTML = column + "<input type='number' min='1' max='100' step='5' value='20' id=" + "bins_" + column.replace(/ /g, '_') + ">";
+            // row.appendChild(newel);
             // console.log(column);
         }
     }
@@ -57,11 +79,17 @@ form.addEventListener("click", async function(evt){
     for(var i = 0; i < data.length; i++){
         var file = data[i];
         var json_data = await Helpers.getData(file.file_path);
-        for(var j = 0; j < file.cols.length; j++){
-            var column = file.cols[j];
-            var column_name = column.name;
-            var description = column.description;
-            var check_box = document.getElementById(column_name.replace(/ /g, '_'));
+        var cols_len = Object.keys(json_data[0]).length;
+        // console.log(json_data[0], Object.keys(json_data[0]).length);
+        for(var col in json_data[0]){
+        // for(var j = 0; j < cols_len; j++){
+            if(!json_data[0].hasOwnProperty(col)){
+                continue;
+            }
+            // console.log(col + "hi")
+            var column_name = col;
+            var description = col;
+            var check_box = document.getElementById((data[i].file_path + column_name).replace(/ /g, '_'));
             if( check_box == null || check_box.checked == false){
                 // console.log("not selected " + column_name)
                 continue;
@@ -74,11 +102,11 @@ form.addEventListener("click", async function(evt){
             var id = file.file_path + '/' + column_name;
             canvas.setAttribute('id', id);
             document.getElementById('plots').appendChild(canvas);
-
-            if(column.plot_type == 'pie'){
+            var column_type = PType.plot_type(json_data, col);
+            if(column_type == 'pie'){
                 PieChart.drawPie(file.file_path, column_name, json_data, description);
             }
-            else if(column.plot_type == 'histogram'){
+            else if(column_type == 'histogram'){
                 // var bins = column.bins;
                 var bins = document.getElementById("bins_" + column_name.replace(/ /g, '_')).value;
                 // console.log(nBins);
