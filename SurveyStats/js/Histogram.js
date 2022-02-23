@@ -64,6 +64,13 @@ async function drawHist(file_path, column_name, bins = 20, arr, description = ""
     var low = Math.floor(Math.min.apply(Math, samples));
     // console.log(high, low)
     var gap = Math.ceil((high - low)/bins)
+    if(gap == 0){
+        // console.log("Not enough data to show statistics of" + column_name);
+        drawHistUtil([high.toString()], [samples.length], column_name, file_path, description);
+        return
+        // description = "Not enough data to show statistics of " + column_name;
+        // return;
+    }
     // console.log(gap)
     var data = {}
     for(var i = 0; i < samples.length; i++){
@@ -75,7 +82,8 @@ async function drawHist(file_path, column_name, bins = 20, arr, description = ""
     // var labels = [low]
     var ind = 0
     var freq = [(data[ind++] || 0)]
-    for(var i = low + gap; i <= high; i += gap){
+    console.log(low, high, gap);
+    for(var i = low + gap; i <= high && gap != 0; i += gap){
         labels.push((i).toString() + "-" + (i + gap).toString());
         freq.push((data[ind++] || 0))
     }

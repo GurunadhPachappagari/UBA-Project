@@ -6,7 +6,7 @@ import * as WProcess from './WordProcessing.js'
 import * as PType from './PlotType.js'
 
 var data = Data.data;
-
+var json_data;
 
 
 // window.onload = function () {
@@ -21,13 +21,16 @@ var data = Data.data;
         var parentTbl = document.getElementById("columnsTable");
         parentTbl.innerHTML = "";
         if (this.selectedIndex < 1) return; // done   
-        var json_data = await Helpers.getData(data[this.value].file_path);
+        json_data = await Helpers.getData(data[this.value].file_path);
         for(var col in json_data[0]){
             // for(var j = 0; j < cols_len; j++){
             if(!json_data[0].hasOwnProperty(col)){
                 continue;
             }
             // console.log(col + "hi")
+            if(WProcess.isSensetive(col)){
+                continue;
+            }
             var column = col;
 
             var row = document.createElement('tr');
@@ -78,7 +81,7 @@ form.addEventListener("click", async function(evt){
     document.getElementById('plots').innerHTML = ""
     for(var i = 0; i < data.length; i++){
         var file_path = data[i].file_path;
-        var json_data = await Helpers.getData(file_path);
+        // var json_data = await Helpers.getData(file_path);
         var cols_len = Object.keys(json_data[0]).length;
         // console.log(json_data[0], Object.keys(json_data[0]).length);
         for(var col in json_data[0]){
