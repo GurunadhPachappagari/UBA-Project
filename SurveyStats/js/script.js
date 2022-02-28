@@ -19,7 +19,9 @@ var json_data;
     }
     dropDownContent.onchange = async function () {
         var parentTbl = document.getElementById("columnsTable");
-        parentTbl.innerHTML = "";
+        var parentTbl2 = document.getElementById("columnsTable2");
+        parentTbl.innerHTML = "<thead><tr><th>Pie Charts</th></tr></thead>";
+        parentTbl2.innerHTML = "<thead><tr><th>Histograms</th></tr></thead>";
         if (this.selectedIndex < 1) return; // done   
         json_data = await Helpers.getData(data[this.value].file_path);
         for(var col in json_data[0]){
@@ -35,19 +37,32 @@ var json_data;
 
             var row = document.createElement('tr');
             // row.setAttribute('id', "table_row");
-            parentTbl.appendChild(row);
+            // parentTbl.appendChild(row);
     
-            var newel = document.createElement('td');
-            newel.innerHTML = "<input type='checkbox' id=" + (data[this.value].file_path + column).replace(/ /g, '_') + ">";
-            
+            // var newel = document.createElement('td');
+            // newel.innerHTML = "<input type='checkbox' id=" + (data[this.value].file_path + column).replace(/ /g, '_') + ">";
+            var check_id = (data[this.value].file_path + column).replace(/ /g, '_');
             var column_type = PType.plot_type(json_data, col);
             if(column_type == 'pie'){
+                parentTbl.appendChild(row);
+    
+                var newel = document.createElement('td');
+                
+                newel.innerHTML = "<input type='checkbox' id=" + check_id + ">";
+                
                 newel.innerHTML += column;
                 row.appendChild(newel);
                 continue;
             }
             // var newel = document.createElement('td');
-            newel.innerHTML += "<input type='number' min='1' max='100' step='5' value='20' id=" + "bins_" + column.replace(/ /g, '_') + ">" + column;
+            parentTbl2.appendChild(row);
+    
+            var newel = document.createElement('td');
+            newel.innerHTML = "<input type='checkbox' id=" + check_id + ">";
+            newel.innerHTML += " " + column
+            newel.innerHTML += " with # "+ "<input type='number' min='1' max='100' step='5' value='20' id=" + "bins_" + column.replace(/ /g, '_') + ">";
+            newel.innerHTML += " Bins";
+            
             row.appendChild(newel);
             // console.log(column);
         }
@@ -120,3 +135,4 @@ form.addEventListener("click", async function(evt){
     }
 
 })
+

@@ -40,7 +40,7 @@ function isSensetive(keyWord){
     var word = keyWords[i].toLowerCase();
     for(var j = 0; j < completeSensetiveWords.length; j++){
       var sWord = completeSensetiveWords[j];
-      console.log(sWord, word)
+      // console.log(sWord, word)
       if(word == sWord){
         return true;
       }

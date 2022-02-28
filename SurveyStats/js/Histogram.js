@@ -82,7 +82,7 @@ async function drawHist(file_path, column_name, bins = 20, arr, description = ""
     // var labels = [low]
     var ind = 0
     var freq = [(data[ind++] || 0)]
-    console.log(low, high, gap);
+    // console.log(low, high, gap);
     for(var i = low + gap; i <= high && gap != 0; i += gap){
         labels.push((i).toString() + "-" + (i + gap).toString());
         freq.push((data[ind++] || 0))
