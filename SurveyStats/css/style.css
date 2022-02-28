@@ -157,10 +157,30 @@
     color: white;
   }
 
-  table tr:nth-child(odd) {
-  background-color: #fff;
+
+td {
+  padding: 10px;
+  transition: all 0.2s ease-in-out;
+}
+td.highlight div {
+  background-color: white;
+  transition: all 0.2s ease-in-out;
+}
+td:hover {
+ /* box-shadow: 4px 9px 4px -6px grey; */
+ box-shadow: 4px 1px 10px 4px grey;
+}
+tr:hover td{
+  cursor:pointer;
+  color:orange;
 }
 
-table tr:nth-child(even) {
-  background-color: #eee;
+/* tr:first-child:hover td {
+  border-top: none;
+}
+tr:last-child:hover td {
+  border-bottom: none;
+} */
+tr:hover td.highlight div {
+  transform: scaleX(3);
 }
