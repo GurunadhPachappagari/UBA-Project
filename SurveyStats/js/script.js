@@ -50,7 +50,7 @@ var json_data;
                 
                 newel.innerHTML = "<input type='checkbox' id=" + check_id + ">";
                 
-                newel.innerHTML += column;
+                newel.innerHTML += "<label for="+ check_id +">"+ column +"</label>";
                 row.appendChild(newel);
                 continue;
             }
@@ -59,9 +59,9 @@ var json_data;
     
             var newel = document.createElement('td');
             newel.innerHTML = "<input type='checkbox' id=" + check_id + ">";
-            newel.innerHTML += " " + column
-            newel.innerHTML += " with # "+ "<input type='number' min='1' max='100' step='5' value='20' id=" + "bins_" + column.replace(/ /g, '_') + ">";
-            newel.innerHTML += " Bins";
+            newel.innerHTML += " " + "<label for="+ check_id +">"+ column +" with #</label> "
+            newel.innerHTML += "<input type='number' min='1' max='100' step='5' value='20' id=" + "bins_" + column.replace(/ /g, '_') + ">";
+            newel.innerHTML += "<label for="+ check_id +">"+ " Bins" +"</label>";
             
             row.appendChild(newel);
             // console.log(column);

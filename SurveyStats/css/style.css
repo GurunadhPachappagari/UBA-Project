@@ -86,8 +86,9 @@
   }
   
   label {
-    padding: 12px 12px 12px 0;
-    display: inline-block;
+    /* padding: 12px 12px 12px 0;
+    display: inline-block; */
+    cursor: pointer;
   }
   
   button[type=button] {
