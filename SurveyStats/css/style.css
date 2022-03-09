@@ -86,8 +86,9 @@
   }
   
   label {
-    padding: 12px 12px 12px 0;
-    display: inline-block;
+    /* padding: 12px 12px 12px 0;
+    display: inline-block; */
+    cursor: pointer;
   }
   
   button[type=button] {
@@ -120,6 +121,16 @@
     float: left;
     width: 75%;
     margin-top: 6px;
+    overflow: auto;
+    height: 100px;
+  }
+
+  .sc-right-75 {
+    float: left;
+    width: 33%;
+    margin-top: 6px;
+    overflow: auto;
+    height: 200px;
   }
   
   /* Clear floats after the columns */
@@ -131,9 +142,46 @@
   
   /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
   @media screen and (max-width: 600px) {
-    .col-25, .col-75, button[type=button] {
+    .left-25, .right-75, .sc-right-75, button[type=button] {
       width: 100%;
       margin-top: 0;
     }
   }
   
+  .sc-right-75 th { position: sticky; top: 0; }
+  
+  /* Just common table stuff. */
+  table  { border-collapse: collapse; width: 100%; }
+  th, td { padding: 8px 16px; }
+  th {
+    background-color: #333;
+    color: white;
+  }
+
+
+td {
+  padding: 10px;
+  transition: all 0.2s ease-in-out;
+}
+td.highlight div {
+  background-color: white;
+  transition: all 0.2s ease-in-out;
+}
+td:hover {
+ /* box-shadow: 4px 9px 4px -6px grey; */
+ box-shadow: 4px 1px 10px 4px grey;
+}
+tr:hover td{
+  cursor:pointer;
+  color:orange;
+}
+
+/* tr:first-child:hover td {
+  border-top: none;
+}
+tr:last-child:hover td {
+  border-bottom: none;
+} */
+tr:hover td.highlight div {
+  transform: scaleX(3);
+}

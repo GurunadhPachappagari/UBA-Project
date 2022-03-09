@@ -41,7 +41,7 @@ async function drawPie(file_path, column_name, arr, description = ""){
         }
         catch(err) {
             console.log(err);
-            console.log(s, column_name, i)
+            // console.log(s, column_name, i)
             continue;
         }
         if(label_set[s] == undefined){
