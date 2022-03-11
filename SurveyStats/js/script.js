@@ -1,11 +1,40 @@
 import * as PieChart from './PieChart.js'
 import * as Histogram from './Histogram.js'
-import * as Data from './select_data.js'
 import * as Helpers from './Helpers.js'
 import * as WProcess from './WordProcessing.js'
 import * as PType from './PlotType.js'
 
-var data = Data.data;
+// var data = Data.data;
+
+const asyncPostCall = async () => {
+    try {
+        const response = await fetch('http://localhost:8080/file_paths', {
+         method: 'POST',
+         headers: {
+           'Content-Type': 'application/json'
+           },
+           body: JSON.stringify({
+     // your expected POST request payload goes here
+            //  title: "My post title",
+            //  body: "My post content."
+            column:"Agricultural Data"
+            })
+         });
+         const m_data = await response.json();
+      // enter you logic when the fetch is successful
+         console.log(m_data);
+         return m_data;
+       } catch(error) {
+     // enter your logic for when there is an error (ex. error toast)
+
+          console.log(error)
+         } 
+    }
+
+var temp_data = await asyncPostCall();
+var data = temp_data.files;
+// REQ list of file paths
+
 var json_data;
 
 
@@ -13,8 +42,7 @@ var json_data;
     var dropDownContent = document.getElementById("Dataset");
     // for (var country in stateObject) {
     for(var i = 0; i < data.length; i++){
-        var file = data[i];
-        var file_path = file.file_path;
+        var file_path = data[i];
         dropDownContent.options[dropDownContent.options.length] = new Option(file_path, i);
     }
     dropDownContent.onchange = async function () {
@@ -23,7 +51,8 @@ var json_data;
         parentTbl.innerHTML = "<thead><tr><th>Pie Charts</th></tr></thead>";
         parentTbl2.innerHTML = "<thead><tr><th>Histograms</th></tr></thead>";
         if (this.selectedIndex < 1) return; // done   
-        json_data = await Helpers.getData(data[this.value].file_path);
+        // REQ Column names of selected column
+        json_data = await Helpers.getData("assets/survey_data/" + data[this.value]);
         for(var col in json_data[0]){
             // for(var j = 0; j < cols_len; j++){
             if(!json_data[0].hasOwnProperty(col)){
@@ -41,8 +70,9 @@ var json_data;
     
             // var newel = document.createElement('td');
             // newel.innerHTML = "<input type='checkbox' id=" + (data[this.value].file_path + column).replace(/ /g, '_') + ">";
-            var check_id = (data[this.value].file_path + column).replace(/ /g, '_');
+            var check_id = (data[this.value] + column).replace(/ /g, '_');
             var column_type = PType.plot_type(json_data, col);
+            // REQ plot type of each column
             if(column_type == 'pie'){
                 parentTbl.appendChild(row);
     
@@ -95,7 +125,7 @@ var form = document.getElementById("dSetFormSubmit")
 form.addEventListener("click", async function(evt){
     document.getElementById('plots').innerHTML = ""
     for(var i = 0; i < data.length; i++){
-        var file_path = data[i].file_path;
+        var file_path = data[i];
         // var json_data = await Helpers.getData(file_path);
         var cols_len = Object.keys(json_data[0]).length;
         // console.log(json_data[0], Object.keys(json_data[0]).length);
@@ -135,4 +165,3 @@ form.addEventListener("click", async function(evt){
     }
 
 })
-

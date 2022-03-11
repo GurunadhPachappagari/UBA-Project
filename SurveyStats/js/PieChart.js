@@ -33,6 +33,7 @@ function drawPieUtil(labels, data, column_name, file_path, description){
 async function drawPie(file_path, column_name, arr, description = ""){
     // console.log(arr.length)
     // console.log(arr[10]['Crop 1'])
+    // REQ : labels, data
     var label_set = {}
     for(var i = 0; i < arr.length; i++){
         var s = arr[i][column_name]
