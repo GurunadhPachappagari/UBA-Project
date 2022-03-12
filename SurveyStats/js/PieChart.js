@@ -1,4 +1,4 @@
-function drawPieUtil(labels, data, column_name, file_path, description){
+function drawPieUtil(labels, freq, column_name, file_path, description){
     var ctx = document.getElementById(file_path + "/" + column_name).getContext('2d');
     var i;
     var bg_colors = []
@@ -23,44 +23,44 @@ function drawPieUtil(labels, data, column_name, file_path, description){
             labels: labels,
             datasets: [{
             backgroundColor: bg_colors,
-            data: data
+            data: freq
             }]
         }
     });
     
 }
 
-async function drawPie(file_path, column_name, arr, description = ""){
-    // console.log(arr.length)
-    // console.log(arr[10]['Crop 1'])
-    // REQ : labels, data
-    var label_set = {}
-    for(var i = 0; i < arr.length; i++){
-        var s = arr[i][column_name]
-        try {
-            var s = s.trim()
-        }
-        catch(err) {
-            console.log(err);
-            // console.log(s, column_name, i)
-            continue;
-        }
-        if(label_set[s] == undefined){
-            label_set[s] = 1;
-        }
-        else{
-            label_set[s] += 1;
-        }
-    }
-    // console.log(label_set)
+// async function drawPie(file_path, column_name, arr, description = ""){
+//     // console.log(arr.length)
+//     // console.log(arr[10]['Crop 1'])
+//     // REQ : labels, data
+//     var label_set = {}
+//     for(var i = 0; i < arr.length; i++){
+//         var s = arr[i][column_name]
+//         try {
+//             var s = s.trim()
+//         }
+//         catch(err) {
+//             console.log(err);
+//             // console.log(s, column_name, i)
+//             continue;
+//         }
+//         if(label_set[s] == undefined){
+//             label_set[s] = 1;
+//         }
+//         else{
+//             label_set[s] += 1;
+//         }
+//     }
+//     // console.log(label_set)
 
-    var data = []
-    var labels = []
-    for(var i in label_set){
-        labels.push(i)
-        data.push(label_set[i])
-    }
-    drawPieUtil(labels, data, column_name, file_path, description);
-}
+//     var data = []
+//     var labels = []
+//     for(var i in label_set){
+//         labels.push(i)
+//         data.push(label_set[i])
+//     }
+//     drawPieUtil(labels, data, column_name, file_path, description);
+// }
 
-export {drawPie, drawPieUtil}
+export {drawPieUtil}

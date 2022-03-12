@@ -2,47 +2,37 @@ import * as PieChart from './PieChart.js'
 import * as Histogram from './Histogram.js'
 import * as Helpers from './Helpers.js'
 import * as WProcess from './WordProcessing.js'
-import * as PType from './PlotType.js'
 
-// var data = Data.data;
 
-const asyncPostCall = async () => {
+const asyncPostCall = async (param, JSONbody = {}) => {
     try {
-        const response = await fetch('http://localhost:8080/file_paths', {
+        const response = await fetch('http://localhost:8080/' + param, {
          method: 'POST',
          headers: {
            'Content-Type': 'application/json'
            },
-           body: JSON.stringify({
-     // your expected POST request payload goes here
-            //  title: "My post title",
-            //  body: "My post content."
-            column:"Agricultural Data"
-            })
+           body: JSON.stringify(JSONbody)
          });
          const m_data = await response.json();
-      // enter you logic when the fetch is successful
          console.log(m_data);
          return m_data;
-       } catch(error) {
-     // enter your logic for when there is an error (ex. error toast)
+    } 
+    catch(error) {
+          console.log(error);
+    } 
+}
 
-          console.log(error)
-         } 
-    }
-
-var temp_data = await asyncPostCall();
-var data = temp_data.files;
-// REQ list of file paths
-
+var temp_data = await asyncPostCall('file_paths');
+var filePaths = temp_data.files;
+var columns, plotType;
 var json_data;
 
 
 // window.onload = function () {
     var dropDownContent = document.getElementById("Dataset");
     // for (var country in stateObject) {
-    for(var i = 0; i < data.length; i++){
-        var file_path = data[i];
+    for(var i = 0; i < filePaths.length; i++){
+        var file_path = filePaths[i];
         dropDownContent.options[dropDownContent.options.length] = new Option(file_path, i);
     }
     dropDownContent.onchange = async function () {
@@ -52,26 +42,18 @@ var json_data;
         parentTbl2.innerHTML = "<thead><tr><th>Histograms</th></tr></thead>";
         if (this.selectedIndex < 1) return; // done   
         // REQ Column names of selected column
-        json_data = await Helpers.getData("assets/survey_data/" + data[this.value]);
-        for(var col in json_data[0]){
-            // for(var j = 0; j < cols_len; j++){
-            if(!json_data[0].hasOwnProperty(col)){
+        var colPlot = await asyncPostCall('column', {file_path: filePaths[this.value]});
+        columns = colPlot.columns; 
+        plotType = colPlot.plotType;
+        json_data = await Helpers.getData(filePaths[this.value]);
+        for(var i = 0; i < plotType.length; i++){
+            var column = columns[i];
+            if(WProcess.isSensetive(column)){
                 continue;
             }
-            // console.log(col + "hi")
-            if(WProcess.isSensetive(col)){
-                continue;
-            }
-            var column = col;
-
             var row = document.createElement('tr');
-            // row.setAttribute('id', "table_row");
-            // parentTbl.appendChild(row);
-    
-            // var newel = document.createElement('td');
-            // newel.innerHTML = "<input type='checkbox' id=" + (data[this.value].file_path + column).replace(/ /g, '_') + ">";
-            var check_id = (data[this.value] + column).replace(/ /g, '_');
-            var column_type = PType.plot_type(json_data, col);
+            var check_id = (filePaths[this.value] + column).replace(/ /g, '_');
+            var column_type = plotType[i];
             // REQ plot type of each column
             if(column_type == 'pie'){
                 parentTbl.appendChild(row);
@@ -96,27 +78,6 @@ var json_data;
             row.appendChild(newel);
             // console.log(column);
         }
-
-        // var parentTbl = document.getElementById("binsTable");
-        // var row = document.createElement('tr');
-        // row.setAttribute('id', "bin_row");
-        // parentTbl.innerHTML = "";
-        // parentTbl.appendChild(row);
-        // for(var col in json_data[0]){
-        //     if(!json_data[0].hasOwnProperty(col)){
-        //         continue;
-        //     }
-            // console.log(col + "hi")
-            // var column = col;
-            // var column_type = PType.plot_type(json_data, col);
-            // if(column_type == 'pie'){
-            //     continue;
-            // }
-            // var newel = document.createElement('td');
-            // newel.innerHTML = column + "<input type='number' min='1' max='100' step='5' value='20' id=" + "bins_" + column.replace(/ /g, '_') + ">";
-            // row.appendChild(newel);
-            // console.log(column);
-        // }
     }
 // }
 
@@ -124,21 +85,13 @@ var json_data;
 var form = document.getElementById("dSetFormSubmit")
 form.addEventListener("click", async function(evt){
     document.getElementById('plots').innerHTML = ""
-    for(var i = 0; i < data.length; i++){
-        var file_path = data[i];
-        // var json_data = await Helpers.getData(file_path);
+    for(var j = 0; j < filePaths.length; j++){
+        var file_path = filePaths[j];
         var cols_len = Object.keys(json_data[0]).length;
-        // console.log(json_data[0], Object.keys(json_data[0]).length);
-        for(var col in json_data[0]){
-        // for(var j = 0; j < cols_len; j++){
-            if(!json_data[0].hasOwnProperty(col)){
-                continue;
-            }
-            // console.log(col + "hi")
-            var column_name = col;
+        for(var i = 0; i < plotType.length; i++){
+            var column_name = columns[i];
             var check_box = document.getElementById((file_path + column_name).replace(/ /g, '_'));
             if( check_box == null || check_box.checked == false){
-                // console.log("not selected " + column_name)
                 continue;
             }
             if(WProcess.isSensetive(column_name)){
@@ -149,17 +102,25 @@ form.addEventListener("click", async function(evt){
             var id = file_path + '/' + column_name;
             canvas.setAttribute('id', id);
             document.getElementById('plots').appendChild(canvas);
-            var column_type = PType.plot_type(json_data, col);
+            var column_type = plotType[i];
             if(column_type == 'pie'){
-                var description = "Pie chart showing the distribution of " + col + " from " + file_path.substring(19, file_path.length - 5);
-                PieChart.drawPie(file_path, column_name, json_data, description);
+                var description = "Pie chart showing the distribution of " + column_name + " from " + file_path.substring(19, file_path.length - 5);
+                // get_stats
+                var body = {"file_path": file_path, "column": column_name, "plotType" : column_type};
+                var labelFreq = await asyncPostCall('get_stats', body);
+                var label = labelFreq.label;
+                var freq = labelFreq.freq;
+                PieChart.drawPieUtil(label, freq, column_name, file_path, description);
             }
             else if(column_type == 'histogram'){
-                var description = "Histogram showing the distribution of " + col + " from " + file_path.substring(19, file_path.length - 5);
-                // var bins = column.bins;
+                var description = "Histogram showing the distribution of " + column_name + " from " + file_path.substring(19, file_path.length - 5);
                 var bins = document.getElementById("bins_" + column_name.replace(/ /g, '_')).value;
-                // console.log(nBins);
-                Histogram.drawHist(file_path, column_name, bins, json_data, description);
+                // get_stats
+                var body = {"file_path": file_path, "column": column_name, "plotType" : column_type, "bins": bins};
+                var labelFreq = await asyncPostCall('get_stats', body);
+                var label = labelFreq.label;
+                var freq = labelFreq.freq;
+                Histogram.drawHistUtil(label, freq, column_name, file_path, description);
             }
         }
     }
