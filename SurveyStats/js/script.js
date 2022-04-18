@@ -1,6 +1,5 @@
 import * as PieChart from './PieChart.js'
 import * as Histogram from './Histogram.js'
-import * as Helpers from './Helpers.js'
 import * as WProcess from './WordProcessing.js'
 
 
@@ -25,7 +24,7 @@ const asyncPostCall = async (param, JSONbody = {}) => {
 var temp_data = await asyncPostCall('file_paths');
 var filePaths = temp_data.files;
 var columns, plotType;
-var json_data;
+// var json_data;
 
 
 // window.onload = function () {
@@ -45,7 +44,7 @@ var json_data;
         var colPlot = await asyncPostCall('column', {file_path: filePaths[this.value]});
         columns = colPlot.columns; 
         plotType = colPlot.plotType;
-        json_data = await Helpers.getData(filePaths[this.value]);
+        // json_data = await Helpers.getData(filePaths[this.value]);
         for(var i = 0; i < plotType.length; i++){
             var column = columns[i];
             if(WProcess.isSensetive(column)){
@@ -87,7 +86,7 @@ form.addEventListener("click", async function(evt){
     document.getElementById('plots').innerHTML = ""
     for(var j = 0; j < filePaths.length; j++){
         var file_path = filePaths[j];
-        var cols_len = Object.keys(json_data[0]).length;
+        // var cols_len = Object.keys(json_data[0]).length;
         for(var i = 0; i < plotType.length; i++){
             var column_name = columns[i];
             var check_box = document.getElementById((file_path + column_name).replace(/ /g, '_'));
