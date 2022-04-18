@@ -6,7 +6,7 @@ import * as WProcess from './WordProcessing.js'
 
 const asyncPostCall = async (param, JSONbody = {}) => {
     try {
-        const response = await fetch('http://localhost:8080/' + param, {
+        const response = await fetch('http://61.0.251.140:8080/' + param, {
          method: 'POST',
          headers: {
            'Content-Type': 'application/json'
