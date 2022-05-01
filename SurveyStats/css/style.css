@@ -3,45 +3,78 @@
     margin: 15px auto;
     
   } */
-  .flex-box-container01{
+
+.flex-box-container01 {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     /* padding: 10px;   */
     justify-content: space-around;
     flex-direction: row;
-  }
-  
-  canvas { background:ivory; border:5px solid orange; align-items: center; width: 50% !important;}
-  /* canvas { background:ivory; border:5px solid orange; width:400px !important; height:400px !important } */
-  
-  /* .header1{
+}
+
+.flex-box-container02 {
+    display: flex;
+    flex-wrap: wrap;
+    /* align-items: center; */
+    /* padding: 10px;   */
+    /* justify-content: space-around; */
+    flex-direction: row;
+}
+
+.flex-box-container03 {
+    display: flex;
+    flex-wrap: wrap;
+    /* align-items: center; */
+    /* padding: 10px;   */
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+.map_class {
+    border: 5px solid orange;
+    height: 500px;
+    width: 80%;
+}
+
+canvas {
+    background: ivory;
+    border: 5px solid orange;
+    align-items: center;
+    width: 50% !important;
+}
+
+
+/* canvas { background:ivory; border:5px solid orange; width:400px !important; height:400px !important } */
+
+
+/* .header1{
     position: relative;
     min-height: 1px;
     padding-right: 15px;
     padding-left: 15px;
   } */
-  
 
-  #leftbox { 
-    float:left;  
-    width:65%; 
-    height:455px; 
-} 
-    #rightbox{ 
-    float:right;
+#leftbox {
+    float: left;
+    width: 65%;
+    height: 455px;
+}
+
+#rightbox {
+    float: right;
     padding-left: 2%;
     padding-right: 2%;
-    background:orange; 
-    width:35%; 
-    height:455px; 
-    
-} 
-    h2{
-        text-align: center;
-    }
+    background: orange;
+    width: 35%;
+    height: 455px;
+}
 
-    .button {
+h2 {
+    text-align: center;
+}
+
+.button {
     background-color: transparent;
     border: 2px solid black;
     color: white;
@@ -52,46 +85,44 @@
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
-    
-   
-    }
+}
 
-    #leftbox2 { 
-      float:left;  
-      padding-top: 2%;
-       padding-left: 15%;
-       padding-right: 5%;
-      width:50%; 
-      height:200px; 
-  } 
-  #ending {
-      width:100%;
-      float:bottom;
-      text-align: center;
+#leftbox2 {
+    float: left;
+    padding-top: 2%;
+    padding-left: 15%;
+    padding-right: 5%;
+    width: 50%;
+    height: 200px;
+}
 
+#ending {
+    width: 100%;
+    float: bottom;
+    text-align: center;
+}
 
-  }
-
-
-  * {
+* {
     box-sizing: border-box;
-  }
-  
-  input[type=text], select, textarea {
+}
+
+input[type=text],
+select,
+textarea {
     width: 100%;
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
     resize: vertical;
-  }
-  
-  label {
+}
+
+label {
     /* padding: 12px 12px 12px 0;
     display: inline-block; */
     cursor: pointer;
-  }
-  
-  button[type=button] {
+}
+
+button[type=button] {
     background-color: #04AA6D;
     color: white;
     padding: 12px 20px;
@@ -99,82 +130,105 @@
     border-radius: 4px;
     cursor: pointer;
     float: right;
-  }
-  
-  button[type=button]:hover {
+}
+
+button[type=button]:hover {
     background-color: #45a049;
-  }
-  
-  .dataset-selection {
+}
+
+.dataset-selection {
     border-radius: 5px;
     background-color: #f2f2f2;
     padding: 20px;
-  }
-  
-  .left-25 {
+}
+
+.left-25 {
     float: left;
     width: 25%;
     margin-top: 6px;
-  }
-  
-  .right-75 {
+}
+
+.right-75 {
     float: left;
     width: 75%;
     margin-top: 6px;
     overflow: auto;
     height: 100px;
-  }
+}
 
-  .sc-right-75 {
+.sc-right-75 {
     float: left;
     width: 33%;
     margin-top: 6px;
     overflow: auto;
     height: 200px;
-  }
-  
-  /* Clear floats after the columns */
-  .row:after {
+}
+
+
+/* Clear floats after the columns */
+
+.row:after {
     content: "";
     display: table;
     clear: both;
-  }
-  
-  /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
-  @media screen and (max-width: 600px) {
-    .left-25, .right-75, .sc-right-75, button[type=button] {
-      width: 100%;
-      margin-top: 0;
+}
+
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+
+@media screen and (max-width: 600px) {
+    .left-25,
+    .right-75,
+    .sc-right-75,
+    button[type=button] {
+        width: 100%;
+        margin-top: 0;
     }
-  }
-  
-  .sc-right-75 th { position: sticky; top: 0; }
-  
-  /* Just common table stuff. */
-  table  { border-collapse: collapse; width: 100%; }
-  th, td { padding: 8px 16px; }
-  th {
+}
+
+.sc-right-75 th {
+    position: sticky;
+    top: 0;
+}
+
+
+/* Just common table stuff. */
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th,
+td {
+    padding: 8px 16px;
+}
+
+th {
     background-color: #333;
     color: white;
-  }
-
+}
 
 td {
-  padding: 10px;
-  transition: all 0.2s ease-in-out;
+    padding: 10px;
+    transition: all 0.2s ease-in-out;
 }
+
 td.highlight div {
-  background-color: white;
-  transition: all 0.2s ease-in-out;
+    background-color: white;
+    transition: all 0.2s ease-in-out;
 }
+
 td:hover {
- /* box-shadow: 4px 9px 4px -6px grey; */
- box-shadow: 4px 1px 10px 4px grey;
+    /* box-shadow: 4px 9px 4px -6px grey; */
+    box-shadow: 4px 1px 10px 4px grey;
 }
-tr:hover td{
-  cursor:pointer;
-  color:orange;
+
+tr:hover td {
+    cursor: pointer;
+    color: orange;
 }
+
 
 /* tr:first-child:hover td {
   border-top: none;
@@ -182,6 +236,7 @@ tr:hover td{
 tr:last-child:hover td {
   border-bottom: none;
 } */
+
 tr:hover td.highlight div {
-  transform: scaleX(3);
+    transform: scaleX(3);
 }

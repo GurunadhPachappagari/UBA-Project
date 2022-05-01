@@ -1,33 +1,33 @@
-function drawPieUtil(labels, freq, column_name, file_path, description){
+function drawPieUtil(labels, freq, column_name, file_path, description) {
     var ctx = document.getElementById(file_path + "/" + column_name).getContext('2d');
     var i;
     var bg_colors = []
-    for(i = 0; i < labels.length; i){
-        var clr = '#'+Math.floor(Math.random()*16777215).toString(16);
-        if(!bg_colors.includes(clr)){
+    for (i = 0; i < labels.length; i) {
+        var clr = '#' + Math.floor(Math.random() * 16777215).toString(16);
+        if (!bg_colors.includes(clr)) {
             bg_colors.push(clr);
-             i++
+            i++
         }
     }
     var myChart = new Chart(ctx, {
         type: 'pie',
         options: {
             title: {
-              display: true,
-              text: [description],
-              position: 'bottom'
+                display: true,
+                text: [description],
+                position: 'bottom'
             },
-            responsive : false
+            responsive: false
         },
         data: {
             labels: labels,
             datasets: [{
-            backgroundColor: bg_colors,
-            data: freq
+                backgroundColor: bg_colors,
+                data: freq
             }]
         }
     });
-    
+
 }
 
 // async function drawPie(file_path, column_name, arr, description = ""){
@@ -63,4 +63,4 @@ function drawPieUtil(labels, freq, column_name, file_path, description){
 //     drawPieUtil(labels, data, column_name, file_path, description);
 // }
 
-export {drawPieUtil}
+export { drawPieUtil }
