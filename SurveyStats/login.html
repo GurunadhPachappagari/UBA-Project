@@ -1,34 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <script language = "JavaScript">  
-    // function myFunction() {
-    //     alert("Correct Credentials!!");
-    // }
-    function ValidateEmail(input) {
-    var validRegex = "uba@iitpkd.ac.in";
-    if (input.value.match(validRegex)) {
-    // alert("Valid email address!");
-    alert("Correct Credentials!!");
-    document.form1.text1.focus();
-    return true;
-    } else {
-    // alert("Invalid email address!");
-    alert("Incorrect Credentials!! Check mail or OTP");
-    document.form1.text1.focus();
-    return false;
-    }
-    }
+    <script language="JavaScript">
     </script>
+
     <script src="https://www.google.com/recaptcha/api.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
     <meta name="description" content="This is the demo of Integrating Google reCAPTCHA in your website with example">
     <meta name="keywords" content="Google reCAPTCHA, Robot identification, Bot identification, Captcha, reCAPTCHA,  reCAPTCHA Live demo,
     CAPTCHA demo, Google CAPTCHA, CAPTCHA LiveDemo, dreamscoder.com,dreamscoder">
-    <title>Integrating Google reCAPTCHA  </title>
+    <title>Upload files to UBA Server</title>
     <script src='https://www.google.com/recaptcha/api.js'></script>
     <!-- <title>IIT PALAKKAD UBA TEST 01</title> -->
     <link href="css/bootstrap.css" rel="stylesheet">
@@ -36,8 +21,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
     <script src="../UBA.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
-    <link rel="stylesheet" href="css/style.css"></link>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/jszip.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/xlsx.js"></script>
     <script src="https://unpkg.com/read-excel-file@4.x/bundle/read-excel-file.min.js"></script>
@@ -46,27 +31,27 @@
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"> -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.js"></script> -->
 
-    <style>  
-        #leftbox { 
-            float:left;  
-           
-            width:65%; 
-            height:455px; 
-        } 
-            #rightbox{ 
-            float:right;
+    <style>
+        #leftbox {
+            float: left;
+            width: 65%;
+            height: 455px;
+        }
+        
+        #rightbox {
+            float: right;
             padding-left: 2%;
             padding-right: 2%;
-            background:orange; 
-            width:35%; 
-            height:455px; 
-            
-        } 
-            h2{
-                text-align: center;
-            }
-
-            .button {
+            background: orange;
+            width: 35%;
+            height: 455px;
+        }
+        
+        h2 {
+            text-align: center;
+        }
+        
+        .button {
             background-color: transparent;
             border: 2px solid black;
             color: white;
@@ -77,36 +62,36 @@
             font-size: 16px;
             margin: 4px 2px;
             cursor: pointer;
-            
-           
-            }
-    </style> 
-     <style>  
-        #leftbox2 { 
-            float:left;  
+        }
+    </style>
+    <style>
+        #leftbox2 {
+            float: left;
             padding-top: 2%;
-             padding-left: 15%;
-             padding-right: 5%;
-            width:50%; 
-            height:200px; 
-        } 
-        #ending {
-            width:100%;
-            float:bottom;
-            text-align: center;
-
-
+            padding-left: 15%;
+            padding-right: 5%;
+            width: 50%;
+            height: 200px;
         }
         
+        #ending {
+            width: 100%;
+            float: bottom;
+            text-align: center;
+        }
     </style>
-    
+
 </head>
+
 <body>
+
+
 
     <div class="container">
         <div class="row small">
-            <div class="col-md-12 "> <p>&nbsp;&nbsp; </p>
-                                    <p>&nbsp;&nbsp;&nbsp;</p>
+            <div class="col-md-12 ">
+                <p>&nbsp;&nbsp; </p>
+                <p>&nbsp;&nbsp;&nbsp;</p>
             </div>
         </div>
         <div class="row headerImageBackground">
@@ -122,92 +107,119 @@
             </div>
         </div>
     </div>
+    <div class="row rownav sticky-top">
+        <nav class="navbar navbar-expand-md text-center ">
 
-    <div class="flex-box-container01" id="plots">  </div>
+            <ul class="navbar-nav m-auto tp1">
+                <li class="nav-item subh1"><a class="nav-link" href="../index.html" style="color:black" style="text-decoration:none">Home</a></li>
+                <li class="nav-item subh4"><a class="nav-link" href="../about.html" style="color:black" style="text-decoration:none">About Us</a></li>
+                <li class="nav-item dropdown subh2"><a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown" style="color:black" style="text-decoration:none">Activities<span class="caret"></span></a>
+                    <div class="dropdown-menu " aria-labelledby="dropdownMenu">
+                        <div class="text-center dd" style="color: black;background-color:white;margin-bottom:5px;text-decoration:none"> <a class="dropdown-item" style="color: black;text-decoration:none" href="../rpa.html">As Regional Co-ordinating Institute</a></div>
+                        <div class="text-center dd" style="color: black; background-color:white;margin-bottom:5px;text-decoration:none"> <a class="dropdown-item" style="color: black;text-decoration:none" href="../activities.html">As Participating Institute</a></div>
 
-    <!-- <form method = "POST">
-		<center>
-            email address : <textarea name = "text1" placeholder = "uba@iitpkd.ac.in" rows = "1" cols = "25"></textarea>
-            <p>password    : <textarea name = "text1" placeholder = "password" rows = "1" cols = "25"></textarea> </p>
-           
-            <div class = "container">
-                <button class = "btn-2"  onclick = "myFunction()" value = "Submit">
-                    <p style = "color: #3e4a79; font-family: 'Source Sans Pro', sans-serif; font-weight: 300;"> Submit</p>
-                </button>
-            </div>
-        </center>
-    </form> -->
+                    </div>
+                </li>
+                <li class="nav-item subh4"><a class="nav-link" href="../imp.html" style="color:black" style="text-decoration:none">Important Links</a></li>
+                <li class="nav-item subh6"><a class="nav-link" href="../rpi.html" style="color:black" style="text-decoration:none">Regional Participating Institutes</a>
+                </li>
+                <li class="nav-item subh4"><a class="nav-link" href="../gallery.html" style="color:black" style="text-decoration:none">Gallery</a></li>
 
-    <form  name="form1" method = "POST" >
+                <li class="nav-item subh6"><a class="nav-link" href="../contact.html" style="color:black" style="text-decoration:none">Contact Us</a></li>
+                <!-- <li class="nav-item subh6"><a class="nav-link" href="index.html"style="color:black"style="text-decoration:none">Survey Stats</a></li> -->
+                <li class="nav-item dropdown subh2"><a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown" style="color:black" style="text-decoration:none">Survey Stats<span class="caret"></span></a>
+                    <div class="dropdown-menu " aria-labelledby="dropdownMenu">
+                        <div class="text-center dd" style="color: black;background-color:white;margin-bottom:5px;text-decoration:none"> <a class="dropdown-item" style="color: black;text-decoration:none" href="login.html">Uploading</a></div>
+                        <div class="text-center dd" style="color: black; background-color:white;margin-bottom:5px;text-decoration:none"> <a class="dropdown-item" style="color: black;text-decoration:none" href="../index.html">Visualization</a></div>
+
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <script type="module" src="js/uploadScript.js"></script>
+
+    <h2>File Upload</h2>
+    <form name="form1" id="form1" method="post">
         <center>
-        <!-- <label for="username">Email address: </label>
-        <input type="text" id="username" name="username"><br> -->
-        <label for="email">Email address:</label>
-        <input type="email" id="email" name="email"> <br>   
-        <label for="pwd">OTP(sent to mail):</label>
-        <input type="password" id="pwd" name="pwd" placeholder = "type OTP"><br>
-        <div class="g-recaptcha" data-sitekey= "6LciKmYeAAAAAKCJJs9UoIdgECcjbWuWbPEVUQml"></div>
-        <!-- <input type="submit" value="Submit"> -->
-        <!-- <div class = "container">
-            <button class = "btn-2"  onclick = "myFunction()" value = "Submit">
-                <p style = "color: #070708; font-family: 'Source Sans Pro', sans-serif; font-weight: 300;"> Submit</p>
-            </button>
-        </div> -->
-        <!-- <input type ="submit" id = "submit" name = "submit" value = "Submit" onclick = "myFunction()" onclick="ValidateEmail(document.form1.username)" class = "btn btn-success" /> -->
-        <input type ="submit" id = "submit" name = "submit" value = "Submit"  onclick="ValidateEmail(document.form1.email)" class = "btn btn-success" />
+            <label for="email">Enter authorized email:</label>
+            <input type="email" id="email" name="email">
+            <button onclick='validate(document.form1.email);'>
+                <p style = "color: #070708; font-family: 'Source Sans Pro'; font-weight: 100;"> Verify mail</p>
+            </button> <br>
+            <p id="val"></p>
+
+            <script>
+                async function showForm() {
+                    document.getElementById('form2').style.display = 'block';
+                }
+
+                function validate(input) {
+                    var validRegex = "uba@iitpkd.ac.in";
+                    if (input.value.match(validRegex)) {
+                        document.getElementById("val").innerHTML = "Correct Credentials!!,Now request OTP";
+                        showForm();
+                        event.preventDefault();
+                    } else {
+                        document.getElementById("val").innerHTML = "Incorrect Credentials!! please enter valid mail";
+                    }
+                }
+            </script>
+
         </center>
-      </form>
+    </form>
 
-         
-    
+    <!-- <div id="for_pwd"> -->
+    <form name="form2" id="form2" method="post" style="display: none;">
+        <center>
+            <input id="button" type="submit" name="button" value="Request OTP" onclick="event.preventDefault();" />
+            <br>
+            <label for="otp"> Otp : </label>
+            <input id="otp" name="otp" placeholder="Otp sent to mail" required/>
+            <br>
+            <label for='files'>Select files</label>
+            <input id='files' type="file" accept=".xlsx, .csv" single>
+            <input type="submit" name="submit" class="btn btn-info" value="Submit Files" id="upload-button">
+        </center>
+    </form>
 
-    <!-- <script type="module" src="js/script.js"></script> -->
 
-    <div class="footer" style="width: 100%;"style="margin-top: 10px;">
- 
-    <div id="leftbox2">
-        <a href="../UBA.html" style="color: white;">Home</a><br>
-        <a href="../gallery.html" style="color: white;">Gallery</a><br>
-        <a href="../imp.html" style="color: white;">Important Links</a><br>
-        <a href="../contact.html" style="color: white;">Contact Us</a><br>
+
+    <div class="footer" style="width: 100%;" style="margin-top: 10px;">
+
+        <div id="leftbox2">
+            <a href="../UBA.html" style="color: white;">Home</a><br>
+            <a href="../gallery.html" style="color: white;">Gallery</a><br>
+            <a href="../imp.html" style="color: white;">Important Links</a><br>
+            <a href="../contact.html" style="color: white;">Contact Us</a><br>
+        </div>
+        <div id="leftbox2">
+
+            <p>Indian Institute of Technology Palakkad</br>
+                Ahalia Integrated Campus,</br>
+                Kozhippara P. O | Palakkad,</br>
+                Kerala | Pin: 678557</p>
+
+            <i class="fa fa-envelope" style="color: white;font-size: small;">  uba@iitpkd.ac.in</i></br>
+            <!-- <i class='fas fa-phone' style="color: white;font-size:small;">  123456789</i> -->
+
+        </div>
+        <hr style="width: 100%;">
+        <div id="ending">
+            <p>&copy UBA IIT-Palakkad 2020 | All rights reserved</br>
+                Creators: GURUNADH PACHAPPAGARI, SANNALA MAHITHA, ABIN SELBY and R K RAJ SURYA
+            </p>
+        </div>
     </div>
-    <div id="leftbox2">
-        
-        <p>Indian Institute of Technology Palakkad</br>
-          Ahalia Integrated Campus,</br>
-          Kozhippara P. O | Palakkad,</br>
-          Kerala | Pin: 678557</p>
-     
-          <i class="fa fa-envelope" style="color: white;font-size: small;">  uba@iitpkd.ac.in</i></br>
-         <!-- <i class='fas fa-phone' style="color: white;font-size:small;">  123456789</i> -->
-          
-    </div> 
-    <hr style="width: 100%;">
-    <div id="ending">
-        <p>&copy UBA IIT-Palakkad 2020 | All rights reserved</br>
-            Creators: ABIN SELBY, R K RAJ SURYA and GURUNADH PACHAPPAGARI
-        </p>
-    </div>
-    </div>
-    
 
-    
-    
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-<script src="../js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="css/bootstrap.css" />
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.css" />
 </body>
- 
-</html>
 
-<script>
-    $(document).on('click' ,'#submit', function()
-    {
-        var response = grecaptcha.getResponse();
-        if(response.length ==0){
-            alert("Please verify you are not a robot");
-            return false;
-        }
-     } ); 
-</script>
+</html>

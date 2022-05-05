@@ -32,6 +32,7 @@ var dropDownContent = document.getElementById("Dataset");
 // for (var country in stateObject) {
 for (var i = 0; i < filePaths.length; i++) {
     var file_path = filePaths[i];
+    // console.log(file_path);
     dropDownContent.options[dropDownContent.options.length] = new Option(file_path, i);
 }
 dropDownContent.onchange = async function() {
@@ -105,20 +106,8 @@ form.addEventListener("click", async function(evt) {
             canvas.setAttribute('id', id);
             document.getElementById('plots').appendChild(canvas);
 
-            var l = document.createElement('div');
-            var l_id = file_path + '/' + column_name + ' for_map';
-            l.setAttribute('id', l_id);
-            l.setAttribute('class', "legend_class");
-            document.getElementById('legends').appendChild(l);
-
             var column_type = plotType[i];
             if (column_type == 'pie') {
-
-                var m = document.createElement('div');
-                var m_id = file_path + '/' + column_name + ' for_map';
-                m.setAttribute('id', m_id);
-                m.setAttribute('class', "map_class");
-                document.getElementById('maps').appendChild(m);
 
                 var description = "Pie chart showing the distribution of " + column_name + " from " + file_path.substring(19, file_path.length - 5);
                 // get_stats
@@ -133,7 +122,23 @@ form.addEventListener("click", async function(evt) {
                 var label = labelFreq.label;
                 var freq = labelFreq.freq;
                 PieChart.drawPieUtil(label, freq, column_name, file_path, description);
-                map.map_show(final_arr, centre_lat, centre_long, column_name, file_path);
+                if (final_arr.length == 0) {
+                    document.getElementById('m3').innerHTML = "No address found to create maps"
+                } else {
+                    var m = document.createElement('div');
+                    var m_id = file_path + '/' + column_name + ' for_map';
+                    m.setAttribute('id', m_id);
+                    m.setAttribute('class', "map_class");
+                    document.getElementById('maps').appendChild(m);
+
+                    var l = document.createElement('div');
+                    var l_id = file_path + '/' + column_name + ' for_legend';
+                    l.setAttribute('id', l_id);
+                    l.setAttribute('class', "legend_class");
+                    document.getElementById('legends').appendChild(l);
+
+                    map.map_show(final_arr, centre_lat, centre_long, column_name, file_path);
+                }
             } else if (column_type == 'histogram') {
                 var description = "Histogram showing the distribution of " + column_name + " from " + file_path.substring(19, file_path.length - 5);
                 var bins = document.getElementById("bins_" + column_name.replace(/ /g, '_')).value;

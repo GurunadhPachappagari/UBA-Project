@@ -31,10 +31,58 @@
     flex-direction: row;
 }
 
+.upload-container h1 {
+    text-align: center;
+    color: black;
+}
+
+form {
+    background-color: white;
+    padding: 30px;
+}
+
+form .upload-input-group {
+    margin-bottom: 15px;
+}
+
+form {
+    display: block;
+    margin-bottom: 10px;
+}
+
+form {
+    padding: 12px 20px;
+    width: 100%;
+    border: 1px solid #ccc;
+}
+
+.upload-submit-btn {
+    width: 100%;
+    border: none;
+    background: orange;
+    font-size: 18px;
+    color: white;
+    border-radius: 3px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+
 .map_class {
-    border: 5px solid orange;
+    /* /* border: 5px solid orange; */
     height: 500px;
+    /* width: 80%; */
+    border: 5px solid orange;
+    /* align-items: center; */
+    width: 80% !important;
+}
+
+.legend_class {
+    position: relative;
+    display: inline-block;
     width: 80%;
+    right: -70%;
+    top: -700px;
 }
 
 canvas {
