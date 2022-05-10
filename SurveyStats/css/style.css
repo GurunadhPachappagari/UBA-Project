@@ -77,12 +77,19 @@ form {
     width: 80% !important;
 }
 
-.legend_class {
+
+/* .legend_class {
     position: relative;
     display: inline-block;
     width: 80%;
     right: -70%;
     top: -700px;
+} */
+
+.legend_class {
+    position: relative;
+    /* top: 0px;
+    left: 0px; */
 }
 
 canvas {

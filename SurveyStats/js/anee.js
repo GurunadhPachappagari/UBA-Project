@@ -11,7 +11,7 @@ function map_show(final_arr, centre_lat, centre_long, col_name, file_path) {
     colorScale = d3.scale.category10();
     var radiusScale = d3.scale.linear()
         .domain([0, d3.max(final_arr, function(data) { return +data.count; })])
-        .range([1, 10]);
+        .range([1, 20]);
     var geoJSONdataFeatures = [];
 
     final_arr.forEach(function(data, p) {
@@ -25,7 +25,7 @@ function map_show(final_arr, centre_lat, centre_long, col_name, file_path) {
             "type": "Feature",
             "properties": { // used to style marker below
                 "color": colorScale(data[col_name]),
-                "radius": radiusScale(+data.count * 5),
+                "radius": radiusScale(+data.count * 3),
                 "info": info
             },
             "geometry": {
@@ -45,7 +45,7 @@ function map_show(final_arr, centre_lat, centre_long, col_name, file_path) {
         osmAttrs = "Map data © <a href='http://openstreetmap.org'>OpenStreetMap</a>";
 
     var osmTiles = new L.TileLayer(bwOsmURL, {
-        minZoom: 8,
+        minZoom: 1,
         maxZoom: 20,
         attribution: osmAttrs
     });
@@ -104,7 +104,7 @@ function map_show(final_arr, centre_lat, centre_long, col_name, file_path) {
         .attr("y", 9)
         .attr("dy", ".35em")
         .style("text-anchor", "end")
-        .text(function(d) { return d.toLowerCase(); })
+        .text(function(d) { return [col_name + " map", d.toLowerCase()]; })
 
     // map.off();
 }

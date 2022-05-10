@@ -88,6 +88,8 @@ form.addEventListener("click", async function(evt) {
     document.getElementById('plots').innerHTML = ""
     document.getElementById('maps').innerHTML = ""
     document.getElementById('legends').innerHTML = ""
+    document.getElementById('m3').innerHTML = ""
+
     for (var j = 0; j < filePaths.length; j++) {
         var file_path = filePaths[j];
         // var cols_len = Object.keys(json_data[0]).length;
