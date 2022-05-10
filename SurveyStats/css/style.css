@@ -93,10 +93,12 @@ form {
 }
 
 canvas {
-    background: ivory;
-    border: 5px solid orange;
-    align-items: center;
-    width: 50% !important;
+    background:ivory; 
+    border:5px solid orange; 
+    align-items: center; 
+    /* width: 50% !important; */
+    float: left;
+    width: 50%;
 }
 
 
@@ -232,14 +234,11 @@ button[type=button]:hover {
 /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
 
 @media screen and (max-width: 600px) {
-    .left-25,
-    .right-75,
-    .sc-right-75,
-    button[type=button] {
-        width: 100%;
-        margin-top: 0;
+    .left-25, .right-75, .sc-right-75, button[type=button], canvas {
+      width: 100%;
+      margin-top: 0;
     }
-}
+  }
 
 .sc-right-75 th {
     position: sticky;
