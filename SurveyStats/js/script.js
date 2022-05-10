@@ -137,7 +137,7 @@ form.addEventListener("click", async function(evt) {
                     var l_id = file_path + '/' + column_name + ' for_legend';
                     l.setAttribute('id', l_id);
                     l.setAttribute('class', "legend_class");
-                    document.getElementById('legends').appendChild(l);
+                    document.getElementById('maps').appendChild(l);
 
                     map.map_show(final_arr, centre_lat, centre_long, column_name, file_path);
                 }

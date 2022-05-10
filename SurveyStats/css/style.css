@@ -74,7 +74,7 @@ form {
     /* width: 80%; */
     border: 5px solid orange;
     /* align-items: center; */
-    width: 80% !important;
+    width: 80%;
 }
 
 
@@ -88,8 +88,15 @@ form {
 
 .legend_class {
     position: relative;
+    display: inline-block;
+    width: -80%;
+    top: 20px;
+    left: 0%;
     /* top: 0px;
     left: 0px; */
+    height: 20px;
+    padding: 50px 10px;
+    background-color: white;
 }
 
 canvas {
